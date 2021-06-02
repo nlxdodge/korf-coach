@@ -139,7 +139,7 @@
             "id": "loopende_vang",
             "categories": [
                 "run",
-                "shot-oefening"
+                "shoot"
             ],
             "name": "Loopende vang",
             "description": "Twee spelers beginnen 3 á 6 meter voor de paal. Speler 1 schiet de bal en speler twee moet de bal vangen. Als de eerste goal niet zit en de 2e speler vangt de bal, dan mag er een rebound shot worden gelost. Zit deze dan krijg je alsnog een punt. Valt de bal op de grond, dan verlies je een punt.",
@@ -154,7 +154,7 @@
             "id": "wegtrekbal",
             "categories": [
                 "run",
-                "shot-oefening"
+                "shoot"
             ],
             "name": "Wegtrekbal",
             "description": "Een standaard wegtrekbal, met nadruk op een hoek lopen, niet een rondje.",
@@ -169,7 +169,7 @@
             "id": "rebound-tastic",
             "categories": [
                 "run",
-                "shot-oefening"
+                "shoot"
             ],
             "name": "Reboundtastic",
             "description": "Speler 1 onder de paal met de bal, gooit naar speler 2 en speler 1 trekt weg, ontvangt de bal en schiet. Speler 2 vangt af en de rollen draaien nu om.",

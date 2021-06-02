@@ -2,8 +2,7 @@
   <div class="exercises">
     <h1>Alle oefeningen</h1>
     <p>
-      Dit zijn alle oefenningen die momenteel in de app zitten, suggesties
-      kunnen worden doorgespeeld naar Gerben Veenhof.
+      In dit overzicht zijn alle bedachte oefeningen nog een keer terug te lezen. Mocht je een oefening weten die er niet tussen staat? Neem dan contact op via het menu bij info.
     </p>
     <MultiSelect
       class="category-select"
@@ -20,7 +19,7 @@
           {{ exercise.name }}
         </template>
         <template #subtitle>
-          {{ exercise.categories }}
+          {{ mapToCategoryNames(exercise.categories) }}
         </template>
         <template #content>
           {{ exercise.description }}
@@ -54,6 +53,20 @@ export default defineComponent({
     categories: 'categories'
   }),
   methods: {
+    mapToCategoryNames (parseCategories: string[]) {
+      const foundCategories: string[] = []
+      parseCategories.forEach(category => {
+        const foundCategory: Category = this.categories.find((x: Category) => {
+          return x.value === category
+        })
+        if (foundCategory != null) {
+          foundCategories.push(foundCategory.label)
+        } else {
+          console.log('Non existing category:', category)
+        }
+      })
+      return foundCategories.join(', ')
+    },
     hasCategory (exercise: Exercise) {
       if (this.selectedCategories.length === 0) {
         return true

@@ -32,6 +32,7 @@ export default defineComponent({
   },
   beforeMount () {
     this.$store.dispatch('loadData')
+    console.log('Loaded data from json file, categories:', this.$store.state.categories.length, 'exercises:', this.$store.state.exercises.length)
   },
   data () {
     return {

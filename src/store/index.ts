@@ -11,7 +11,7 @@ export default createStore({
   state,
   mutations: {
     setCategories (localState, payload) {
-      localState.categories = payload
+      state.categories = payload
     },
     setExercises (localState, payload) {
       state.exercises = payload
