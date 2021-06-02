@@ -22,12 +22,30 @@
         }
     ],
     "warming-up-exercises": [
-        "Squads",
-        "Planken",
-        "Kikker sprongen",
-        "Lunges",
-        "Shoulder taps",
-        "Sit-ups"
+        {
+            "label": "Squads",
+            "description": ""
+        },
+        {
+            "label": "Planken",
+            "description": ""
+        },
+        {
+            "label": "Kikker Sprongen",
+            "description": ""
+        },
+        {
+            "label": "Lunges",
+            "description": ""
+        },
+        {
+            "label": "Shoulder Taps",
+            "description": ""
+        },
+        {
+            "label": "Sit-ups",
+            "description": ""
+        }
     ],
     "exercises": [
         {

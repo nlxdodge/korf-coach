@@ -34,7 +34,7 @@ import { defineComponent } from 'vue'
 import Card from 'primevue/card'
 import MultiSelect from 'primevue/multiselect'
 import { mapState } from 'vuex'
-import { Exercise } from '../models/Exersice'
+import { Exercise } from '../models/Exercise'
 import { Category } from '@/models/Category'
 
 export default defineComponent({
@@ -65,7 +65,7 @@ export default defineComponent({
           console.log('Non existing category:', category)
         }
       })
-      return foundCategories.join(', ')
+      return foundCategories.join(' | ')
     },
     hasCategory (exercise: Exercise) {
       if (this.selectedCategories.length === 0) {

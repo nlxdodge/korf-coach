@@ -1,5 +1,5 @@
 import { Category } from './Category'
-import { Exercise } from './Exersice'
+import { Exercise } from '@/models/Exercise'
 
 export interface State {
     categories: Category[],
