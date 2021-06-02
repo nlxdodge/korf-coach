@@ -1,10 +1,25 @@
 {
     "categories": [
-        "warm-up",
-        "shoot",
-        "run",
-        "vs",
-        "vs-all"
+        {
+            "label": "Warming Up",
+            "value": "warm-up"
+        },
+        {
+            "label": "Schiet Oefening",
+            "value": "shoot"
+        },
+        {
+            "label": "Ren Oefening",
+            "value": "run"
+        },
+        {
+            "label": "VS Oefening",
+            "value": "vs"
+        },
+        {
+            "label": "Partijtje",
+            "value": "vs-all"
+        }
     ],
     "warming-up-exercises": [
         "Squads",
