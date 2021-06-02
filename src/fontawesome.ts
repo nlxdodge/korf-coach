@@ -3,12 +3,16 @@ import {
   faRunning,
   faBars,
   faQuestionCircle,
-  faList
+  faList,
+  faCogs,
+  faTrash
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
   faRunning,
   faBars,
   faQuestionCircle,
-  faList
+  faList,
+  faCogs,
+  faTrash
 )

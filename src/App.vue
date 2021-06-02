@@ -21,7 +21,7 @@
   <router-view />
 </template>
 
-<script>
+<script lang="ts">
 import Sidebar from 'primevue/sidebar'
 import { defineComponent } from 'vue'
 
@@ -29,6 +29,9 @@ export default defineComponent({
   name: 'Exercises',
   components: {
     Sidebar
+  },
+  beforeMount () {
+    this.$store.dispatch('loadData')
   },
   data () {
     return {

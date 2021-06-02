@@ -14,16 +14,19 @@
       </div>
     </template>
     <template #footer>
-      <Button
-        icon="pi pi-play"
-        label="Maak training"
-        @click="generateTraining()"
-      />
+      <span class="actions p-buttonset">
+        <Button @click="generateTraining()">
+            <font-awesome-icon :icon="['fas', 'cogs']" />Maak Training
+        </Button>
+        <Button class="p-button-danger" @click="resetFeatures()">
+            <font-awesome-icon :icon="['fas', 'trash']" />Reset
+        </Button>
+      </span>
     </template>
   </Card>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
@@ -51,6 +54,9 @@ export default defineComponent({
   methods: {
     generateTraining () {
       console.log('generating training')
+    },
+    resetFeatures () {
+      console.log('reset features')
     }
   }
 })
@@ -59,5 +65,11 @@ export default defineComponent({
 <style lang="scss">
 .training-generator {
   margin-top: 25px;
+
+  .actions {
+      svg {
+          margin-right: 10px;
+      }
+  }
 }
 </style>

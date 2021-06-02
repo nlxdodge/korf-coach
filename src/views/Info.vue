@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Button from 'primevue/button'
 import { defineComponent } from 'vue'
 
