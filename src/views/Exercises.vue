@@ -24,11 +24,10 @@
 <script>
 import { defineComponent } from 'vue'
 import Card from 'primevue/card'
-import mixins from '../mixins'
+import { mapState } from 'vuex'
 
 export default defineComponent({
   name: 'Exercises',
-  mixins: [mixins],
   components: {
     Card
   },

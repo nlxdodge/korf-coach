@@ -9,8 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import 'primevue/resources/themes/nova/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
-
-import './mixins'
 import './fontawesome'
 
 createApp(App)
