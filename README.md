@@ -1,24 +1,22 @@
-# korfbal-trainer
+# Korfbal Trainer
 
-## Project setup
-```
+An app that generates a training based on a list of settings.
+Can generate different types of exercises with different scores or time limits.
+
+## Install dependencies
+
+```bash
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
+### Run development environment (Hot-reloads) no <http://localhost:8080/>
+
+```bash
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
+### Compile and minify for production environment
+
+```bash
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
