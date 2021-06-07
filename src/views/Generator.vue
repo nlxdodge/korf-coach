@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="generator">
     <h1>Maak Training</h1>
     <TrainingGenerator/>
   </div>
@@ -7,10 +7,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import TrainingGenerator from '../components/TrainingGenerator.vue'
+import TrainingGenerator from '@/components/TrainingGenerator.vue'
 
 export default defineComponent({
-  name: 'Home',
+  name: 'generator',
   components: {
     TrainingGenerator
   }
@@ -18,7 +18,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.home {
+.generator {
   h1 {
     text-align: center;
     color: #fff;

@@ -5,21 +5,25 @@
     </template>
     <template #content>
       <div class="p-d-flex">
-        <multi-select
+        <MultiSelect
+          class="category-select"
           v-model="selectedCategories"
           :options="categories"
           optionLabel="label"
-          placeholder="Select categoriën"
+          placeholder="Aleen Categoriën"
+          scrollHeight="250px"
+          display="chip"
+          :showToggleAll="false"
         />
       </div>
     </template>
     <template #footer>
       <span class="actions p-buttonset">
         <Button @click="generateTraining()">
-            <font-awesome-icon :icon="['fas', 'cogs']" />Maak Training
+          <font-awesome-icon :icon="['fas', 'cogs']" />Maak Training
         </Button>
         <Button class="p-button-danger" @click="resetFeatures()">
-            <font-awesome-icon :icon="['fas', 'trash']" />Reset
+          <font-awesome-icon :icon="['fas', 'trash']" />Reset
         </Button>
       </span>
     </template>
@@ -28,6 +32,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapState } from 'vuex'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import MultiSelect from 'primevue/multiselect'
@@ -41,16 +46,13 @@ export default defineComponent({
   },
   data () {
     return {
-      selectedCategory: null,
-      categories: [
-        { label: 'warm-up', value: 'Warming Up' },
-        { label: 'shoot', value: 'Schiet Oefening' },
-        { label: 'run', value: 'Loop Oefening' },
-        { label: 'vs', value: 'VS Oefening' },
-        { label: 'vs-all', value: 'Partijtje' }
-      ]
+      selectedCategories: this.categories
     }
   },
+  computed: mapState({
+    exercises: 'exercises',
+    categories: 'categories'
+  }),
   methods: {
     generateTraining () {
       console.log('generating training')
@@ -66,10 +68,14 @@ export default defineComponent({
 .training-generator {
   margin-top: 25px;
 
+  .category-select {
+    width: 100%;
+  }
+
   .actions {
-      svg {
-          margin-right: 10px;
-      }
+    svg {
+      margin-right: 10px;
+    }
   }
 }
 </style>
