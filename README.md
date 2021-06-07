@@ -3,6 +3,8 @@
 An app that generates a training based on a list of settings.
 Can generate different types of exercises with different scores or time limits.
 
+Live test environment: <https://korfbal-trainer.netlify.app/>
+
 ## Install dependencies
 
 ```bash
