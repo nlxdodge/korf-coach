@@ -5,7 +5,8 @@ import {
   faQuestionCircle,
   faList,
   faCogs,
-  faTrash
+  faTrash,
+  faArrowAltCircleLeft
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -14,5 +15,6 @@ library.add(
   faQuestionCircle,
   faList,
   faCogs,
-  faTrash
+  faTrash,
+  faArrowAltCircleLeft
 )

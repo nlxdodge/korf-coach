@@ -1,21 +1,26 @@
 <template>
-  <div class="nav-hamburger" @click="visibleLeft = true">
+  <div class="nav-hamburger" @click="navVisible = true">
     <font-awesome-icon :icon="['fas', 'bars']" />
   </div>
-  <Sidebar v-model:visible="visibleLeft">
+  <Sidebar v-model:visible="navVisible" :showCloseIcon="false">
     <nav>
-      <router-link to="/" @click="visibleLeft = false">
+      <p>Korfbal Trainer</p>
+      <router-link to="/" @click="navVisible = false">
         <font-awesome-icon :icon="['fas', 'running']" />
         Maak Training</router-link
       >
-      <router-link to="/exercises" @click="visibleLeft = false">
+      <router-link to="/exercises" @click="navVisible = false">
         <font-awesome-icon :icon="['fas', 'list']" />
         Oefeningen</router-link
       >
-      <router-link to="/info" @click="visibleLeft = false">
+      <router-link to="/info" @click="navVisible = false">
         <font-awesome-icon :icon="['fas', 'question-circle']" />
         Info</router-link
       >
+      <a href="#" @click="navVisible = false">
+        <font-awesome-icon :icon="['fas', 'arrow-alt-circle-left']" />
+        Sluiten
+      </a>
     </nav>
   </Sidebar>
   <router-view />
@@ -32,11 +37,16 @@ export default defineComponent({
   },
   beforeMount () {
     this.$store.dispatch('loadData')
-    console.log('Loaded data from json file, categories:', this.$store.state.categories.length, 'exercises:', this.$store.state.exercises.length)
+    console.log(
+      'Loaded data from json file, categories:',
+      this.$store.state.categories.length,
+      'exercises:',
+      this.$store.state.exercises.length
+    )
   },
   data () {
     return {
-      visibleLeft: false
+      navVisible: false
     }
   }
 })
@@ -64,6 +74,14 @@ html {
 nav {
   display: flex;
   flex-direction: column;
+
+  p {
+    text-align: center;
+    color: #cc0c0c;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin: 10px 0;
+  }
 
   a {
     text-decoration-line: none;
