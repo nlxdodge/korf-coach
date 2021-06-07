@@ -6,8 +6,13 @@ import {
   faList,
   faCogs,
   faTrash,
-  faArrowAltCircleLeft
+  faArrowAltCircleLeft,
+  faEnvelope
 } from '@fortawesome/free-solid-svg-icons'
+
+import {
+  faGithub
+} from '@fortawesome/free-brands-svg-icons'
 
 library.add(
   faRunning,
@@ -16,5 +21,7 @@ library.add(
   faList,
   faCogs,
   faTrash,
-  faArrowAltCircleLeft
+  faArrowAltCircleLeft,
+  faGithub,
+  faEnvelope
 )
