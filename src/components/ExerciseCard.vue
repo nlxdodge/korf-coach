@@ -27,7 +27,10 @@ export default defineComponent({
     categories: 'categories'
   }),
   props: {
-    exercise: Object
+    exercise: {
+      type: Object,
+      required: true
+    }
   },
   methods: {
     mapToCategoryNames (parseCategories: string[]) {
@@ -39,7 +42,7 @@ export default defineComponent({
         if (foundCategory != null) {
           foundCategories.push(foundCategory.label)
         } else {
-          console.log('Non existing category:', category)
+          console.warn('Non existing category found:', category)
         }
       })
       return foundCategories.join(' | ')
