@@ -69,6 +69,8 @@ html {
   top: 20px;
   left: 20px;
   font-size: 2.25rem;
+  -webkit-filter: drop-shadow(0 0 0.1rem  rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 0 0.1rem  rgba(0, 0, 0, 0.5));
 }
 
 nav {
