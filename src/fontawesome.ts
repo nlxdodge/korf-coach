@@ -7,7 +7,11 @@ import {
   faCogs,
   faTrash,
   faArrowAltCircleLeft,
-  faEnvelope
+  faEnvelope,
+  faCrosshairs,
+  faPeopleArrows,
+  faWalking,
+  faUsers
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -23,5 +27,9 @@ library.add(
   faTrash,
   faArrowAltCircleLeft,
   faGithub,
-  faEnvelope
+  faEnvelope,
+  faCrosshairs,
+  faPeopleArrows,
+  faWalking,
+  faUsers
 )

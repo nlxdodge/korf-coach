@@ -3,32 +3,44 @@
         {
             "order": 1,
             "label": "Warming Up",
-            "value": "warm-up"
+            "value": "warm-up",
+            "icon": "running"
         },
         {
             "order": 2,
-            "label": "Schiet Oefening",
-            "value": "shoot"
+            "label": "Schieten",
+            "value": "shoot",
+            "icon": "crosshairs"
         },
         {
             "order": 3,
-            "label": "Beweeg Oefening",
-            "value": "run"
+            "label": "Bewegen",
+            "value": "run",
+            "icon": "walking"
         },
         {
             "order": 4,
-            "label": "Onderlinge Oefening",
-            "value": "vs"
+            "label": "Onderling",
+            "value": "vs",
+            "icon": "people-arrows"
         },
         {
             "order": 5,
-            "label": "Fun Oefening",
-            "value": "fun"
+            "label": "Fun",
+            "value": "fun",
+            "icon": "smile"
         },
         {
             "order": 6,
             "label": "Partijtje",
-            "value": "vs-all"
+            "value": "vs-all",
+            "icon": "users"
+        },
+        {
+            "order": 7,
+            "label": "Water Oefening",
+            "value": "water",
+            "icon": "tint"
         }
     ],
     "warming-up-exercises": [

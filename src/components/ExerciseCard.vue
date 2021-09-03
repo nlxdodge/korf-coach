@@ -4,7 +4,16 @@
       {{ exercise.name }}
     </template>
     <template #subtitle>
-      {{ mapToCategoryNames(exercise.categories) }}
+      <div class="categories">
+        <div
+          class="category"
+          v-for="category in getCategories()"
+          :key="category.order"
+        >
+          <font-awesome-icon :icon="['fas', category.icon]" />
+          {{ category.label }}
+        </div>
+      </div>
     </template>
     <template #content>
       {{ exercise.description }}
@@ -15,17 +24,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Card from 'primevue/card'
-import { Category } from '@/models/Category'
-import { mapState } from 'vuex'
 
 export default defineComponent({
   name: 'ExerciseCard',
   components: {
     Card
   },
-  computed: mapState({
-    categories: 'categories'
-  }),
   props: {
     exercise: {
       type: Object,
@@ -33,19 +37,10 @@ export default defineComponent({
     }
   },
   methods: {
-    mapToCategoryNames (parseCategories: string[]) {
-      const foundCategories: string[] = []
-      parseCategories.forEach(category => {
-        const foundCategory: Category = this.categories.find((x: Category) => {
-          return x.value === category
-        })
-        if (foundCategory != null) {
-          foundCategories.push(foundCategory.label)
-        } else {
-          console.warn('Non existing category found:', category)
-        }
+    getCategories () {
+      return this.exercise.categories.map((category: string) => {
+        return this.$store.getters.getCategoryByValue(category)
       })
-      return foundCategories.join(' | ')
     }
   }
 })
@@ -54,5 +49,13 @@ export default defineComponent({
 <style lang="scss">
 .exercise-card {
   margin-bottom: 25px;
+
+  .categories {
+    display: flex;
+
+    .category {
+      margin-right: 15px;
+    }
+  }
 }
 </style>

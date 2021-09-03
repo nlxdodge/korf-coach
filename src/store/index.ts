@@ -1,3 +1,4 @@
+import { Category } from '@/models/Category'
 import { State } from '@/models/State'
 import { createStore } from 'vuex'
 import data from './korfbal.json'
@@ -21,6 +22,13 @@ export default createStore({
     loadData ({ commit }) {
       commit('setCategories', data.categories)
       commit('setExercises', data.exercises)
+    }
+  },
+  getters: {
+    getCategoryByValue: (state) => (name: string) => {
+      return state.categories.find((c: Category) => {
+        return c.value === name
+      })
     }
   }
 })
