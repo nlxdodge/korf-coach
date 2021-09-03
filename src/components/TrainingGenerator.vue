@@ -111,11 +111,18 @@ export default defineComponent({
     },
     generateWarmUp (minutes: number) {
       console.log(`generating warmup with ${minutes}`)
-      return []
+      const warmupExercises = this.exercises.filter((ex: Exercise) =>
+        ex.categories.includes('warm-up')
+      )
+      return this.selectRandom(warmupExercises)
     },
     generateNormalExercises (minutes: number) {
       console.log(`generating normal exercises with ${minutes}`)
-      return []
+      // selectedCategories
+      const warmupExercises = this.exercises.filter((ex: Exercise) =>
+        ex.categories.includes('warm-up')
+      )
+      return this.selectRandom(warmupExercises)
     },
     generateVSExercise () {
       const vsExercises = this.exercises.filter((ex: Exercise) =>

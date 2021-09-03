@@ -10,20 +10,20 @@
           suggesties hebben kan je onderstaande knop gebruiken om een e-mail te
           sturen.
         </p>
-        <Button class="p-button-lg">
-          <a href="mailto:doodoking@live.nl">
+        <a href="mailto:doodoking@live.nl">
+          <Button class="p-button-lg">
             <font-awesome-icon :icon="['fas', 'envelope']" /> E-mail sturen
-          </a>
-        </Button>
+          </Button>
+        </a>
         <p>
-          Ook kan je zelf componenten toevoegen als programmeur. Korfbal Trainer is een Open
-          Source project gemaakt in VueJS 3.0 + Typescript.
+          Ook kan je zelf componenten toevoegen als programmeur. Korfbal Trainer
+          is een Open Source project gemaakt in VueJS 3.0 + Typescript.
         </p>
-        <Button class="p-button-lg">
-          <a href="https://github.com/nlxdodge/korfbal-trainer">
+        <a href="https://github.com/nlxdodge/korfbal-trainer">
+          <Button class="p-button-lg">
             <font-awesome-icon :icon="['fab', 'github']" /> Github
-          </a>
-        </Button>
+          </Button>
+        </a>
       </template>
     </Card>
   </div>
@@ -50,15 +50,15 @@ export default defineComponent({
     color: #fff;
   }
 
-  button {
-    display: block;
-    width: 100%;
-    margin: 10px auto;
+  a {
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
 
-    a {
-      color: #fff;
-      text-align: center;
-      text-decoration: none;
+    button {
+      display: block;
+      width: 100%;
+      margin: 10px auto;
     }
   }
 }
