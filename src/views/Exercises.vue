@@ -107,7 +107,7 @@ export default defineComponent({
     @media screen and (min-width: 1080px) {
       grid-template-columns: repeat(4, 1fr);
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 2160px) {
       grid-template-columns: repeat(6, 1fr);
     }
   }
