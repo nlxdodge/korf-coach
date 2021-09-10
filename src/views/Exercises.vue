@@ -1,7 +1,7 @@
 <template>
   <div class="exercises">
     <h1>Alle oefeningen</h1>
-    <Card class="exercise-card">
+    <Card class="exercise-filter">
       <template #content>
         In dit overzicht zijn alle oefeningen nog een keer terug te lezen. Heb
         jij ook een idee voor een oefening? Neem dan contact op bij Info in het
@@ -21,9 +21,11 @@
       </template>
     </Card>
 
-    <div v-for="exercise in exercises" :key="exercise.name">
+    <div class="exercises-grid">
       <ExerciseCard
-        v-if="hasCategory(exercise)"
+        class="exercise-card"
+        v-for="exercise in filterdExercises"
+        :key="exercise.name"
         :exercise="exercise"
       ></ExerciseCard>
     </div>
@@ -51,10 +53,17 @@ export default defineComponent({
       selectedCategories: [] as Category[]
     }
   },
-  computed: mapState({
-    exercises: 'exercises',
-    categories: 'categories'
-  }),
+  computed: {
+    ...mapState({
+      categories: 'categories',
+      exercises: 'exercises'
+    }),
+    filterdExercises: function (state) {
+      return state.exercises.filter((exercise: Exercise) =>
+        this.hasCategory(exercise)
+      )
+    }
+  },
   methods: {
     hasCategory (exercise: Exercise) {
       if (this.selectedCategories.length === 0) {
@@ -79,13 +88,28 @@ export default defineComponent({
     color: #fff;
   }
 
-  .exercise-card {
+  .exercise-filter {
     margin-bottom: 25px;
   }
 
   .category-select {
     width: 100%;
     margin-bottom: 20px;
+  }
+
+  .exercises-grid {
+    display: grid;
+    gap: 15px;
+
+    @media screen and (min-width: 676px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (min-width: 1080px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media screen and (min-width: 1440px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
   }
 }
 </style>

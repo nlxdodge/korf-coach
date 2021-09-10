@@ -48,11 +48,11 @@ export default defineComponent({
 
 <style lang="scss">
 .exercise-card {
-  margin-bottom: 25px;
-
   .categories {
     display: flex;
-
+    @media screen and (min-width: 676px) {
+      display: block;
+    }
     .category {
       margin-right: 15px;
     }
