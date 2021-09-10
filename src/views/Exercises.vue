@@ -60,11 +60,13 @@ export default defineComponent({
       if (this.selectedCategories.length === 0) {
         return true
       }
-      return exercise.categories.find(category => {
-        return this.selectedCategories.find(x => {
-          return x.value === category
-        })
+      let returnValue = true
+      this.selectedCategories.find(selected => {
+        if (!exercise.categories.includes(selected.value)) {
+          returnValue = false
+        }
       })
+      return returnValue
     }
   }
 })
