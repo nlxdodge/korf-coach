@@ -4,43 +4,50 @@
             "order": 1,
             "label": "Warming Up",
             "value": "warm-up",
-            "icon": "running"
+            "icon": "running",
+            "color": "green"
         },
         {
             "order": 2,
             "label": "Schieten",
             "value": "shoot",
-            "icon": "crosshairs"
+            "icon": "crosshairs",
+            "color": "orange"
         },
         {
             "order": 3,
             "label": "Bewegen",
             "value": "run",
-            "icon": "walking"
+            "icon": "walking",
+            "color": "purple"
         },
         {
             "order": 4,
             "label": "Onderling",
             "value": "vs",
-            "icon": "people-arrows"
+            "icon": "people-arrows",
+            "coolor": "red"
         },
         {
             "order": 5,
             "label": "Fun",
             "value": "fun",
-            "icon": "smile"
+            "icon": "smile",
+            "color": "yellow"
         },
         {
             "order": 6,
             "label": "Partijtje",
             "value": "vs-all",
-            "icon": "users"
+            "icon": "users",
+            "color": "grey"
         },
         {
             "order": 7,
             "label": "Water Oefening",
             "value": "water",
-            "icon": "tint"
+            "icon": "tint",
+            "color": "blue"
         }
     ],
     "warming-up-exercises": [
@@ -71,12 +78,12 @@
     ],
     "exercises": [
         {
-            "id": "qwop",
+            "id": "legertje",
             "categories": [
                 "run",
                 "warm-up"
             ],
-            "name": "Qwop",
+            "name": "Legertje",
             "description": "Het hele team loopt op goed tempo om het veld. Als de trainer 1 roept doen alle spelers een spring, 2 een kikkerspring, 3 is omdraaien en 4 is een klein sprintje trekken",
             "peopleNeeded": "Hele team",
             "switchWhen": "",
@@ -424,6 +431,38 @@
             "exerciseFinishedWhen": "Laatste persoon die overblijft wint",
             "timeEstimate": "3-7",
             "repeatTimesGenerate": "1",
+            "scoreGenerate": ""
+        },
+        {
+            "id": "korfdans",
+            "categories": [
+                "vs",
+                "shoot"
+            ],
+            "modifiers": ["ending"],
+            "name": "Korven Dans",
+            "description": "Elke paal moet tienen, dan schuif je een paal op. Haal je iemand in door daarna weer 10 te scoren dan moet die paal uit het spel worden gehaald. Speel door tot het laatste team over is.",
+            "peopleNeeded": "2-3",
+            "switchWhen": "Na elk schot",
+            "exerciseFinishedWhen": "Laatste persoon die overblijft wint",
+            "timeEstimate": "3-5",
+            "repeatTimesGenerate": "1",
+            "scoreGenerate": ""
+        },
+        {
+            "id": "duo-esstafette",
+            "categories": [
+                "vs",
+                "shoot",
+                "run"
+            ],
+            "name": "Duo Estafette",
+            "description": "Erg liggen een hoop pionnen in het midden voor iedereen even ver lopen. Bij het startsein moet de ene persoon rennen naar de pionnen er er een pakken voor een punt. De ander schiet op de paal vanaf 3 meter voor een punt. Als alle pionnen op zijn stopt het spel en het team met de meeste punten wint.",
+            "peopleNeeded": "2-3",
+            "switchWhen": "Nadat alle pionnen op zijn",
+            "exerciseFinishedWhen": "Laatste persoon die overblijft wint",
+            "timeEstimate": "3-5",
+            "repeatTimesGenerate": "2",
             "scoreGenerate": ""
         }
     ]
