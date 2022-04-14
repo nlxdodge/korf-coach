@@ -3,10 +3,12 @@ module.exports = {
   env: {
     node: true
   },
+  // TODO FIX LINTING
   extends: [
-    'plugin:vue/vue3-essential',
-    '@vue/standard',
-    '@vue/typescript/recommended'
+    'eslint:recommended',
+    'plugin:vue/vue3-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking'
   ],
   parserOptions: {
     es2021: true,

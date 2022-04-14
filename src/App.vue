@@ -1,23 +1,41 @@
 <template>
-  <div class="nav-hamburger" @click="navVisible = true">
+  <div
+    class="nav-hamburger"
+    @click="navVisible = true"
+  >
     <font-awesome-icon :icon="['fas', 'bars']" />
   </div>
-  <Sidebar v-model:visible="navVisible" :showCloseIcon="false">
+  <Sidebar
+    v-model:visible="navVisible"
+    :show-close-icon="false"
+  >
     <nav>
       <p>Korfbal Trainer</p>
-      <router-link to="/" @click="navVisible = false">
+      <router-link
+        to="/"
+        @click="navVisible = false"
+      >
         <font-awesome-icon :icon="['fas', 'running']" />
-        Maak Training</router-link
+        Maak Training
+      </router-link>
+      <router-link
+        to="/exercises"
+        @click="navVisible = false"
       >
-      <router-link to="/exercises" @click="navVisible = false">
         <font-awesome-icon :icon="['fas', 'list']" />
-        Oefeningen</router-link
+        Oefeningen
+      </router-link>
+      <router-link
+        to="/info"
+        @click="navVisible = false"
       >
-      <router-link to="/info" @click="navVisible = false">
         <font-awesome-icon :icon="['fas', 'question-circle']" />
-        Info</router-link
+        Info
+      </router-link>
+      <a
+        href="#"
+        @click="navVisible = false"
       >
-      <a href="#" @click="navVisible = false">
         <font-awesome-icon :icon="['fas', 'arrow-alt-circle-left']" />
         Sluiten
       </a>
@@ -31,9 +49,13 @@ import Sidebar from 'primevue/sidebar'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Exercises',
   components: {
     Sidebar
+  },
+  data () {
+    return {
+      navVisible: false
+    }
   },
   beforeMount () {
     this.$store.dispatch('loadData')
@@ -43,11 +65,6 @@ export default defineComponent({
       'exercises:',
       this.$store.state.exercises.length
     )
-  },
-  data () {
-    return {
-      navVisible: false
-    }
   }
 })
 </script>

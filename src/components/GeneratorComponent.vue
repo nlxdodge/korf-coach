@@ -58,17 +58,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { mapState } from 'vuex'
-import Card from 'primevue/card'
 import Button from 'primevue/button'
+import Card from 'primevue/card'
+import Dialog from 'primevue/dialog'
 import MultiSelect from 'primevue/multiselect'
 import Slider from 'primevue/slider'
-import Dialog from 'primevue/dialog'
+import { defineComponent } from 'vue'
+import { mapState } from 'vuex'
 import { Exercise } from '../models/Exercise'
 
 export default defineComponent({
-  name: 'Generator',
+  name: 'GeneratorComponent',
   components: {
     Card,
     Button,

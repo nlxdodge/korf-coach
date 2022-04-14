@@ -38,13 +38,13 @@
 import { defineComponent } from 'vue'
 import MultiSelect from 'primevue/multiselect'
 import Card from 'primevue/card'
-import ExerciseCard from '@/components/ExerciseCard.vue'
+import ExerciseCard from '@/components/ExerciseComponent.vue'
 import { mapState } from 'vuex'
 import { Exercise } from '@/models/Exercise'
 import { Category } from '@/models/Category'
 
 export default defineComponent({
-  name: 'Exercises',
+  name: 'ExercisesView',
   components: {
     MultiSelect,
     ExerciseCard,

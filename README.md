@@ -19,7 +19,13 @@ yarn install
 yarn dev
 ```
 
-### Compile and minify for production environment
+### Lint the project
+
+```bash
+yarn lint
+```
+
+### Build for production environment
 
 ```bash
 yarn build

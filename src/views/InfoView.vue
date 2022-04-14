@@ -3,7 +3,10 @@
     <h1>Info</h1>
     <div class="flex-center">
       <Card>
-        <template #content class="p-jc-between">
+        <template
+          #content
+          class="p-jc-between"
+        >
           <p>
             Deze app is gemaakt om gemakkelijk een training te kunnen `genereren`,
             om zo toch een goede training neer te kunnen zetten. Mocht je
@@ -31,12 +34,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Info',
+  name: 'InfoView',
   components: {
     Button,
     Card
