@@ -1,15 +1,13 @@
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import 'primeicons/primeicons.css'
+import PrimeVue from 'primevue/config'
+import 'primevue/resources/primevue.min.css'
+import 'primevue/resources/themes/nova/theme.css'
 import { createApp } from 'vue'
 import App from './App.vue'
-import './registerServiceWorker'
+import './fontawesome'
 import router from './router'
 import store from './store'
-import PrimeVue from 'primevue/config'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-import 'primevue/resources/themes/nova/theme.css'
-import 'primevue/resources/primevue.min.css'
-import 'primeicons/primeicons.css'
-import './fontawesome'
 
 createApp(App)
   .component('font-awesome-icon', FontAwesomeIcon)

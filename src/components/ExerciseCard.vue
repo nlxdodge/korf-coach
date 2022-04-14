@@ -14,9 +14,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import Card from 'primevue/card'
 import { Category } from '@/models/Category'
+import Card from 'primevue/card'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'ExerciseCard',
