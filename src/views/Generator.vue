@@ -1,18 +1,18 @@
 <template>
   <div class="generator">
     <h1>Maak Training</h1>
-    <TrainingGenerator/>
+    <Generator/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import TrainingGenerator from '@/components/TrainingGenerator.vue'
+import Generator from '@/components/Generator.vue'
 
 export default defineComponent({
   name: 'generator',
   components: {
-    TrainingGenerator
+    Generator
   }
 })
 </script>

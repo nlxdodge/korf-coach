@@ -29,12 +29,7 @@
           Warm-up tot {{ trainingSplits[0] }} min. Oefeningen tot
           {{ trainingSplits[1] }} min.
         </p>
-        <Slider
-          v-model="trainingSplits"
-          :range="true"
-          :step="5"
-          :max="trainingMinutes"
-        />
+        <Slider v-model="trainingSplits" :range="true" :step="5" :max="trainingMinutes" />
       </div>
     </template>
     <template #footer>
@@ -49,14 +44,14 @@
     </template>
   </Card>
   <Dialog v-model:visible="displayHelp" position="bottom" :closable="false">
-    <template #header>
-      Generator uitleg
-    </template>
+    <template #header>Generator uitleg</template>
     De trainings template die wij altijd aanhouden is een warm-up, oefeningen en
     een partijtje. De categoriën kunnen gebruikt worden om een training
     specifieker te maken. De sliders zijn om het aantal minuten van de
     oefeningen te beïnvloeden.
-    <template #footer>
+    <template
+      #footer
+    >
       <Button label="Sluiten" @click="displayHelp = false" />
     </template>
   </Dialog>
@@ -73,7 +68,7 @@ import Dialog from 'primevue/dialog'
 import { Exercise } from '../models/Exercise'
 
 export default defineComponent({
-  name: 'TrainingGenerator',
+  name: 'Generator',
   components: {
     Card,
     Button,
@@ -102,42 +97,42 @@ export default defineComponent({
       const exerciseMinutes = this.trainingSplits[1] - this.trainingSplits[0]
       const vsExerciseMinutes = this.trainingMinutes - this.trainingSplits[1]
       const warmUpExercises = this.generateWarmUp(warmUpMinutes)
-      exercises.push(...warmUpExercises)
-      const exerciseNormal = this.generateNormalExercises(exerciseMinutes)
-      exercises.push(...exerciseNormal)
+      exercises.push(warmUpExercises)
+      const exerciseNormal = this.generateNormalExercise(exerciseMinutes)
+      exercises.push(exerciseNormal)
       const vsExercise: Exercise = this.generateVSExercise()
       exercises.push(vsExercise)
       console.log('Training', exercises)
     },
-    generateWarmUp (minutes: number) {
+    generateWarmUp (minutes: number): Exercise {
       console.log(`generating warmup with ${minutes}`)
       const warmupExercises = this.exercises.filter((ex: Exercise) =>
         ex.categories.includes('warm-up')
       )
-      return this.selectRandom(warmupExercises)
+      return this.randomExercise(warmupExercises)
     },
-    generateNormalExercises (minutes: number) {
+    generateNormalExercise (minutes: number): Exercise {
       console.log(`generating normal exercises with ${minutes}`)
       // selectedCategories
       const warmupExercises = this.exercises.filter((ex: Exercise) =>
         ex.categories.includes('warm-up')
       )
-      return this.selectRandom(warmupExercises)
+      return this.randomExercise(warmupExercises)
     },
-    generateVSExercise () {
+    generateVSExercise (): Exercise {
       const vsExercises = this.exercises.filter((ex: Exercise) =>
         ex.categories.includes('vs-all')
       )
-      return this.selectRandom(vsExercises)
+      return this.randomExercise(vsExercises)
     },
-    selectRandom (array: Array<any>) {
+    randomExercise (array: Array<Exercise>): Exercise {
       return array[this.randomRange(0, array.length)]
     },
-    random () {
+    random (): number {
       const int = window.crypto.getRandomValues(new Uint32Array(1))[0]
       return int / 2 ** 32
     },
-    randomRange (min: number, max: number) {
+    randomRange (min: number, max: number): number {
       const range = max - min
       return Math.floor(this.random() * range + min)
     },

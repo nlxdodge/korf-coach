@@ -1,29 +1,22 @@
 <template>
   <Card class="exercise-card">
-    <template #title>
-      {{ exercise.name }}
-    </template>
+    <template #title>{{ exercise.name }}</template>
     <template #subtitle>
       <div class="categories">
-        <div
-          class="category"
-          v-for="category in getCategories()"
-          :key="category.order"
-        >
+        <div class="category" v-for="category in getCategories()" :key="category.order">
           <font-awesome-icon :icon="['fas', category.icon]" />
           {{ category.label }}
         </div>
       </div>
     </template>
-    <template #content>
-      {{ exercise.description }}
-    </template>
+    <template #content>{{ exercise.description }}</template>
   </Card>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Card from 'primevue/card'
+import { Category } from '@/models/Category'
 
 export default defineComponent({
   name: 'ExerciseCard',
@@ -37,7 +30,7 @@ export default defineComponent({
     }
   },
   methods: {
-    getCategories () {
+    getCategories (): Category[] {
       return this.exercise.categories.map((category: string) => {
         return this.$store.getters.getCategoryByValue(category)
       })
@@ -46,7 +39,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .exercise-card {
   .categories {
     display: flex;

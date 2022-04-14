@@ -1,4 +1,4 @@
 export interface WarmingUpExercise {
-    label: string,
+    label: string
     description: string
 }

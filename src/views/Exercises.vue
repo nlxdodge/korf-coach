@@ -1,25 +1,27 @@
 <template>
   <div class="exercises">
     <h1>Alle oefeningen</h1>
-    <Card class="exercise-filter">
-      <template #content>
-        In dit overzicht zijn alle oefeningen nog een keer terug te lezen. Heb
-        jij ook een idee voor een oefening? Neem dan contact op bij Info in het
-        menu.
-      </template>
-      <template #footer>
-        <MultiSelect
-          class="category-select"
-          v-model="selectedCategories"
-          :options="categories"
-          optionLabel="label"
-          placeholder="Filter op Categorie"
-          scrollHeight="250px"
-          display="chip"
-          :showToggleAll="false"
-        />
-      </template>
-    </Card>
+    <div class="exercise-filter">
+      <Card>
+        <template #content>
+          In dit overzicht zijn alle oefeningen nog een keer terug te lezen. Heb
+          jij ook een idee voor een oefening? Neem dan contact op bij Info in het
+          menu.
+        </template>
+        <template #footer>
+          <MultiSelect
+            class="category-select"
+            v-model="selectedCategories"
+            :options="categories"
+            optionLabel="label"
+            placeholder="Filter op Categorie"
+            scrollHeight="250px"
+            display="chip"
+            :showToggleAll="false"
+          />
+        </template>
+      </Card>
+    </div>
 
     <div class="exercises-grid">
       <ExerciseCard
@@ -69,13 +71,8 @@ export default defineComponent({
       if (this.selectedCategories.length === 0) {
         return true
       }
-      let returnValue = true
-      this.selectedCategories.find(selected => {
-        if (!exercise.categories.includes(selected.value)) {
-          returnValue = false
-        }
-      })
-      return returnValue
+      const object = this.selectedCategories.find(selected => !exercise.categories.includes(selected.value))
+      return !object
     }
   }
 })
@@ -89,7 +86,13 @@ export default defineComponent({
   }
 
   .exercise-filter {
-    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+
+    .p-card {
+      max-width: 600px;
+      margin-bottom: 25px;
+    }
   }
 
   .category-select {
