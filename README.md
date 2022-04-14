@@ -3,22 +3,24 @@
 An app that generates a training based on a list of settings.
 Can generate different types of exercises with different scores or time limits.
 
-Live test environment: <https://korfbal-trainer.netlify.app/>
+Live Environment: <https://korfbal-trainer.netlify.app/>
 
 ## Install dependencies
 
+This projects uses Vue3 with Vite and Yarn for faster local development
+
 ```bash
-npm install
+yarn install
 ```
 
-### Run development environment (Hot-reloads) no <http://localhost:8080/>
+### Run development environment (Hot-reloads) on <http://localhost:3000/>
 
 ```bash
-npm run serve
+yarn dev
 ```
 
 ### Compile and minify for production environment
 
 ```bash
-npm run build
+yarn build
 ```
