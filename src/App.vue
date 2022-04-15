@@ -70,8 +70,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+$primary-color: #cc0c0c;
+
 html {
-  background-color: #cc0c0c;
+  background-color: $primary-color;
 }
 
 #app {
@@ -96,7 +98,7 @@ nav {
 
   p {
     text-align: center;
-    color: #cc0c0c;
+    color: $primary-color;
     font-weight: bold;
     font-size: 1.25rem;
     margin: 10px 0;
@@ -104,10 +106,10 @@ nav {
 
   a {
     text-decoration-line: none;
-    color: #cc0c0c;
+    color: $primary-color;
     font-size: 1.25rem;
     padding: 10px;
-    border-bottom: 2px solid #cc0c0c;
+    border-bottom: 2px solid $primary-color;
 
     svg {
       width: 75px;

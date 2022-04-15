@@ -2,24 +2,13 @@
   <Card class="training-generator">
     <template #title>
       Training Samenstelling
-      <font-awesome-icon
-        class="help"
-        @click="displayHelp = true"
-        :icon="['fas', 'question-circle']"
-      />
+      <font-awesome-icon class="help" @click="displayHelp = true" :icon="['fas', 'question-circle']" />
     </template>
     <template #content>
       <div class="p-d-flex">
         <span class="p-float-label">
-          <MultiSelect
-            id="category-select"
-            class="category-select"
-            v-model="selectedCategories"
-            :options="categories"
-            optionLabel="label"
-            scrollHeight="250px"
-            display="chip"
-          />
+          <MultiSelect id="category-select" class="category-select" v-model="selectedCategories" :options="categories"
+            optionLabel="label" scrollHeight="250px" display="chip" />
           <label for="category-select">Selecteer categoriën</label>
         </span>
 
@@ -43,24 +32,26 @@
       </span>
     </template>
   </Card>
-  <Dialog v-model:visible="displayHelp" position="bottom" :closable="false">
-    <template #header>Generator uitleg</template>
+  <Card>
+    <template #title>
+      Training
+    </template>
+    <template #content>
+      <h2>TEST</h2>
+    </template>
+  </Card>
+  <InfoComponent title="Hoe werkt het?" description="Dit is een test Yoooooo">
     De trainings template die wij altijd aanhouden is een warm-up, oefeningen en
     een partijtje. De categoriën kunnen gebruikt worden om een training
     specifieker te maken. De sliders zijn om het aantal minuten van de
     oefeningen te beïnvloeden.
-    <template
-      #footer
-    >
-      <Button label="Sluiten" @click="displayHelp = false" />
-    </template>
-  </Dialog>
+  </InfoComponent>
 </template>
 
 <script lang="ts">
+import InfoComponent from '../components/InfoComponent.vue'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
-import Dialog from 'primevue/dialog'
 import MultiSelect from 'primevue/multiselect'
 import Slider from 'primevue/slider'
 import { defineComponent } from 'vue'
@@ -74,11 +65,10 @@ export default defineComponent({
     Button,
     MultiSelect,
     Slider,
-    Dialog
+    InfoComponent
   },
-  data () {
+  data() {
     return {
-      displayHelp: false,
       selectedCategories: [],
       trainingMinutes: 60,
       trainingSplits: [15, 45],
@@ -90,7 +80,7 @@ export default defineComponent({
     categories: 'categories'
   }),
   methods: {
-    generateTraining () {
+    generateTraining() {
       console.log('generating training')
       const exercises = [] as Exercise[]
       const warmUpMinutes = this.trainingSplits[0]
@@ -104,14 +94,14 @@ export default defineComponent({
       exercises.push(vsExercise)
       console.log('Training', exercises)
     },
-    generateWarmUp (minutes: number): Exercise {
+    generateWarmUp(minutes: number): Exercise {
       console.log(`generating warmup with ${minutes}`)
       const warmupExercises = this.exercises.filter((ex: Exercise) =>
         ex.categories.includes('warm-up')
       )
       return this.randomExercise(warmupExercises)
     },
-    generateNormalExercise (minutes: number): Exercise {
+    generateNormalExercise(minutes: number): Exercise {
       console.log(`generating normal exercises with ${minutes}`)
       // selectedCategories
       const warmupExercises = this.exercises.filter((ex: Exercise) =>
@@ -119,24 +109,24 @@ export default defineComponent({
       )
       return this.randomExercise(warmupExercises)
     },
-    generateVSExercise (): Exercise {
+    generateVSExercise(): Exercise {
       const vsExercises = this.exercises.filter((ex: Exercise) =>
         ex.categories.includes('vs-all')
       )
       return this.randomExercise(vsExercises)
     },
-    randomExercise (array: Array<Exercise>): Exercise {
+    randomExercise(array: Array<Exercise>): Exercise {
       return array[this.randomRange(0, array.length)]
     },
-    random (): number {
+    random(): number {
       const int = window.crypto.getRandomValues(new Uint32Array(1))[0]
       return int / 2 ** 32
     },
-    randomRange (min: number, max: number): number {
+    randomRange(min: number, max: number): number {
       const range = max - min
       return Math.floor(this.random() * range + min)
     },
-    resetFeatures () {
+    resetFeatures() {
       this.selectedCategories = []
       this.trainingMinutes = 60
       this.trainingSplits = [15, 45]

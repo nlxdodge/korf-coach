@@ -11,15 +11,15 @@ const state: State = {
 export default createStore({
   state,
   mutations: {
-    setCategories (localState, payload) {
+    setCategories(localState, payload) {
       state.categories = payload
     },
-    setExercises (localState, payload) {
+    setExercises(localState, payload) {
       state.exercises = payload
     }
   },
   actions: {
-    loadData ({ commit }) {
+    loadData({ commit }) {
       commit('setCategories', data.categories)
       commit('setExercises', data.exercises)
     }
