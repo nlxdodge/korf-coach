@@ -74,6 +74,22 @@
         {
             "label": "Sit-ups",
             "description": ""
+        },
+        {
+            "label": "Sprintje trekken",
+            "description": ""
+        },
+        {
+            "label": "Hakken Billen",
+            "description": ""
+        },
+        {
+            "label": "Knieheffen",
+            "description": ""
+        },
+        {
+            "label": "Kruis Links",
+            "description": ""
         }
     ],
     "exercises": [
@@ -102,7 +118,7 @@
             "description": "Om het veld zijn 6 punten, iedereen versprijd zich over deze 6 punten. Bij 1 punt ligt een dobbelsteen, het getal wat wordt gegooit is het aantal pionnen waar de opdracht voor gedaan moet worden. Stel er wordt een 3 gegooit met hakken-billen, dan moet iedereen drie pionen opschuiven en de opdracht uitvoeren. Hierna wordt opnieuw gegooit met een nieuwe opdracht.",
             "peopleNeeded": "Hele team",
             "switchWhen": "",
-            "exerciseFinishedWhen": "Idereen warm/moe, klaar met opdrachten, tijd tekort",
+            "exerciseFinishedWhen": "10x gooien",
             "timeEstimate": "7-15",
             "repeatTimesGenerate": "8-15",
             "scoreGenerate": ""
@@ -219,7 +235,7 @@
                 "shoot"
             ],
             "name": "Wegtrekbal",
-            "description": "Een standaard wegtrekbal, met nadruk op een hoek lopen, niet een rondje.",
+            "description": "De welbegaafde wegtrekbal onder de paal",
             "peopleNeeded": "2-3",
             "switchWhen": "Wissel na elk schot met 3 personen en met 2 personen 2 keer.",
             "exerciseFinishedWhen": "${score} scoren",
@@ -463,6 +479,23 @@
             "exerciseFinishedWhen": "Laatste persoon die overblijft wint",
             "timeEstimate": "3-5",
             "repeatTimesGenerate": "2",
+            "scoreGenerate": ""
+        },
+        {
+            "id": "mens-erger-je-niet",
+            "categories": [
+                "vs",
+                "shoot",
+                "run",
+                "fun"
+            ],
+            "name": "Mens erger je niet",
+            "description": "",
+            "peopleNeeded": "2-3",
+            "switchWhen": "",
+            "exerciseFinishedWhen": "De eerste bij het einde wint",
+            "timeEstimate": "20-45",
+            "repeatTimesGenerate": "0",
             "scoreGenerate": ""
         }
     ]
