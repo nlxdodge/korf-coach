@@ -1,0 +1,10 @@
+semi: false
+singleAttributePerLine: true
+singleQuote: true
+vueIndentScriptAndStyle: true 
+parser: vue
+arrowParens: always
+bracketSameLine: false
+endOfLine: lf
+bracketSpacing: true
+trailingComma: all

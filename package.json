@@ -6,8 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
-    "format": "prettier .  --write"
+    "lint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore --fix src"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -27,15 +26,15 @@
     "@typescript-eslint/parser": "^5.35.1",
     "@vitejs/plugin-vue": "^2.3.1",
     "@yarnpkg/pnpify": "^3.1.5",
-    "eslint": "^8.13.0",
+    "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^8.6.0",
+    "eslint-plugin-vue": "^9.4.0",
     "typescript": "^4.8.2",
     "vite": "^2.9.5",
-    "vite-plugin-eslint": "^1.4.0"
+    "vite-plugin-eslint": "^1.8.1"
   },
   "packageManager": "yarn@3.2.3"
 }
