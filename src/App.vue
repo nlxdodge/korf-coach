@@ -45,9 +45,9 @@
 </template>
 
 <script setup lang="ts">
-import Sidebar from 'primevue/sidebar'
-import { onBeforeMount, ref } from 'vue'
-import { useStore } from 'vuex'
+import Sidebar from 'primevue/sidebar';
+import { onBeforeMount, ref } from 'vue';
+import { useStore } from 'vuex';
 
 const store = useStore()
 
@@ -107,7 +107,7 @@ nav {
     border-bottom: 2px solid $primary-color;
 
     svg {
-      width: 75px;
+      width: 40px;
     }
   }
 }
