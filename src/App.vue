@@ -44,28 +44,23 @@
   <router-view />
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import Sidebar from 'primevue/sidebar'
-import { defineComponent } from 'vue'
+import { onBeforeMount, ref } from 'vue'
+import { useStore } from 'vuex'
 
-export default defineComponent({
-  components: {
-    Sidebar
-  },
-  data () {
-    return {
-      navVisible: false
-    }
-  },
-  beforeMount () {
-    this.$store.dispatch('loadData')
-    console.log(
-      'Loaded data from json file, categories:',
-      this.$store.state.categories.length,
-      'exercises:',
-      this.$store.state.exercises.length
-    )
-  }
+const store = useStore()
+
+let navVisible = ref(false)
+
+onBeforeMount(() => {
+  store.dispatch('loadData')
+  console.log(
+    'Loaded data from json file, categories:',
+    store.state.categories.length,
+    'exercises:',
+    store.state.exercises.length
+  )
 })
 </script>
 

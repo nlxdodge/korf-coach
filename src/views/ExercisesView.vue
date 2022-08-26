@@ -10,14 +10,14 @@
         </template>
         <template #footer>
           <MultiSelect
-            class="category-select"
             v-model="selectedCategories"
-            :options="categories"
-            optionLabel="label"
+            class="category-select"
+            :options="store.state.categories"
+            option-label="label"
             placeholder="Filter op Categorie"
-            scrollHeight="250px"
+            scroll-height="250px"
             display="chip"
-            :showToggleAll="false"
+            :show-toggle-all="false"
           />
         </template>
       </Card>
@@ -25,57 +25,40 @@
 
     <div class="exercises-grid">
       <ExerciseCard
-        class="exercise-card"
         v-for="exercise in filterdExercises"
         :key="exercise.name"
+        class="exercise-card"
         :exercise="exercise"
-      ></ExerciseCard>
+      />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import MultiSelect from 'primevue/multiselect'
-import Card from 'primevue/card'
+<script setup lang="ts">
 import ExerciseCard from '@/components/ExerciseComponent.vue'
-import { mapState } from 'vuex'
-import { Exercise } from '@/models/Exercise'
 import { Category } from '@/models/Category'
+import { Exercise } from '@/models/Exercise'
+import Card from 'primevue/card'
+import MultiSelect from 'primevue/multiselect'
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
 
-export default defineComponent({
-  name: 'ExercisesView',
-  components: {
-    MultiSelect,
-    ExerciseCard,
-    Card
-  },
-  data () {
-    return {
-      selectedCategories: [] as Category[]
-    }
-  },
-  computed: {
-    ...mapState({
-      categories: 'categories',
-      exercises: 'exercises'
-    }),
-    filterdExercises: function (state) {
-      return state.exercises.filter((exercise: Exercise) =>
-        this.hasCategory(exercise)
-      )
-    }
-  },
-  methods: {
-    hasCategory (exercise: Exercise) {
-      if (this.selectedCategories.length === 0) {
-        return true
-      }
-      const object = this.selectedCategories.find(selected => !exercise.categories.includes(selected.value))
-      return !object
-    }
-  }
+const store = useStore()
+let selectedCategories = ref([] as Category[])
+
+let filterdExercises = computed(() => {
+  return store.state.exercises.filter((exercise: Exercise) =>
+    hasCategory(exercise)
+  )
 })
+
+function hasCategory (exercise: Exercise) {
+  if (selectedCategories.value.length === 0) {
+    return true
+  }
+  return !(selectedCategories.value.find((selected : Category) => !exercise.categories.includes(selected.value)))
+}
+
 </script>
 
 <style lang="scss">

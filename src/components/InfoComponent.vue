@@ -1,27 +1,40 @@
 <template>
   <div class="info-component">
-    <FontAwesomeIcon :icon="['fas', 'question-circle']" @click="state.show = !state.show" />
-    <Dialog v-model:visible="state.show" position="bottom" :closable="false">
-      <template #header>{{ props.title }}</template>
-      <slot></slot>
+    <FontAwesomeIcon 
+      :icon="['fas', 'question-circle']"
+      @click="show.value = !show.value"
+    />
+    <Dialog 
+      v-model:visible="show.value"
+      position="bottom"
+      :closable="false"
+    >
+      <template #header>
+        {{ props.title }}
+      </template>
+      <slot />
       <template #footer>
-        <Button label="Sluiten" @click="state.show = !state.show" />
+        <Button 
+          label="Sluiten" 
+          @click="show.value = !show.value"
+        />
       </template>
     </Dialog>
   </div>
 </template>
-<script setup type="ts">
-import Dialog from 'primevue/dialog'
-import Button from 'primevue/button'
+
+<script setup lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { reactive } from "@vue/reactivity"
+import Button from 'primevue/button';
+import Dialog from 'primevue/dialog';
+import { defineProps, ref } from 'vue';
 
-
+const show = ref(false)
 const props = defineProps({
-  title: String
-})
-const state = reactive({
-  show: false
+  title : { 
+    type: String,
+    default: ""
+  }
 })
 </script>
 <style scoped lang="scss">

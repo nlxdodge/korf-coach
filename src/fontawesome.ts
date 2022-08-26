@@ -1,17 +1,6 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
-  faRunning,
-  faBars,
-  faQuestionCircle,
-  faList,
-  faCogs,
-  faTrash,
-  faArrowAltCircleLeft,
-  faEnvelope,
-  faCrosshairs,
-  faPeopleArrows,
-  faWalking,
-  faUsers
+  faArrowAltCircleLeft, faBars, faCogs, faCrosshairs, faEnvelope, faList, faPeopleArrows, faQuestionCircle, faRunning, faTrash, faUsers, faWalking, faSmile
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -31,5 +20,6 @@ library.add(
   faCrosshairs,
   faPeopleArrows,
   faWalking,
-  faUsers
+  faUsers,
+  faSmile
 )

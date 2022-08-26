@@ -5,16 +5,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Generator from '@/components/GeneratorComponent.vue'
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'GeneratorView',
-  components: {
-    Generator
-  }
-})
+<script setup lang="ts">
+import Generator from '@/components/GeneratorComponent.vue';
 </script>
 
 <style lang="scss">

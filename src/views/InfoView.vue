@@ -3,10 +3,7 @@
     <h1>Info</h1>
     <div class="flex-center">
       <Card>
-        <template
-          #content
-          class="p-jc-between"
-        >
+        <template #content>
           <p>
             Deze app is gemaakt om gemakkelijk een training te kunnen `genereren`,
             om zo toch een goede training neer te kunnen zetten. Mocht je
@@ -19,8 +16,8 @@
             </Button>
           </a>
           <p>
-            Ook kan je zelf componenten toevoegen als programmeur. Korfbal Trainer
-            is een Open Source project gemaakt in VueJS 3.0 + Typescript.
+            Zelf een bijdragen maken aan Korfbal Trainer?
+            Korfbal Trainer is een Open Source project gemaakt in VueJS 3 + Composition API + Typescript + Yarn 2.
           </p>
           <a href="https://github.com/nlxdodge/korfbal-trainer">
             <Button class="p-button-lg">
@@ -33,18 +30,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import Button from 'primevue/button'
-import Card from 'primevue/card'
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'InfoView',
-  components: {
-    Button,
-    Card
-  }
-})
+<script setup lang="ts">
+import Button from 'primevue/button';
+import Card from 'primevue/card';
 </script>
 
 <style scoped lang="scss">
