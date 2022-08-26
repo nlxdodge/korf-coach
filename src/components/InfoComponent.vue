@@ -24,10 +24,10 @@
 </template>
 
 <script setup lang="ts">
+import { ref, defineProps } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import Button from 'primevue/button';
-import Dialog from 'primevue/dialog';
-import { defineProps, ref } from 'vue';
+import Button from 'primevue/button'
+import Dialog from 'primevue/dialog'
 
 const show = ref(false)
 const props = defineProps({

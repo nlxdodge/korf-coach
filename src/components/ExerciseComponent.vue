@@ -22,9 +22,9 @@
 </template>
 
 <script setup lang="ts">
-import Card from 'primevue/card';
-import { defineProps } from 'vue';
-import { useStore } from 'vuex';
+import Card from 'primevue/card'
+import { defineProps } from 'vue'
+import { useStore } from 'vuex'
 
 const store = useStore()
 

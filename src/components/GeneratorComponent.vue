@@ -26,7 +26,7 @@
         <p>Lengte training (min): {{ trainingMinutes }}</p>
         <Slider
           v-model="trainingMinutes"
-          :step="15"
+          :step="1"
           :min="15"
           :max="120"
         />
@@ -37,7 +37,7 @@
         <Slider
           v-model="trainingSplits"
           :range="true"
-          :step="5"
+          :step="1"
           :max="trainingMinutes"
         />
       </div>
@@ -61,7 +61,12 @@
       Training
     </template>
     <template #content>
-      <h2>TEST</h2>
+      <ExerciseCard
+        v-for="exercise in generatedTraining"
+        :key="exercise.name"
+        class="exercise-card"
+        :exercise="exercise"
+      />
     </template>
   </Card>
   <InfoComponent
@@ -75,6 +80,7 @@
 </template>
 
 <script setup lang="ts">
+import ExerciseCard from '@/components/ExerciseComponent.vue'
 import InfoComponent from '@/components/InfoComponent.vue'
 import { Category } from '@/models/Category'
 import { Exercise } from '@/models/Exercise'
@@ -82,21 +88,31 @@ import Button from 'primevue/button'
 import Card from 'primevue/card'
 import MultiSelect from 'primevue/multiselect'
 import Slider from 'primevue/slider'
+import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
 
 const store = useStore()
 
-let selectedCategories = [] as Category[]
-let trainingMinutes = 60
-let trainingSplits = [15, 45]
-let generatedTraining = [] as Exercise[]
+let selectedCategories = ref([] as Category[])
+let trainingMinutes = ref(60)
+let trainingSplits = ref([15, 45])
+let generatedTraining = ref([] as Exercise[])
+
+watch(trainingMinutes, (newMinutes: number) => {
+  if(trainingSplits.value[1] > newMinutes) {
+    trainingSplits.value[1] = newMinutes
+    if(trainingSplits.value[0] >= trainingSplits.value[1]) {
+      trainingSplits.value[0] = trainingSplits.value[1] - 5
+    }
+  }
+})
 
 function generateTraining() {
   console.log('generating training')
   const exercises = [] as Exercise[]
-  const warmUpMinutes = trainingSplits[0]
-  const exerciseMinutes = trainingSplits[1] - trainingSplits[0]
-  const vsExerciseMinutes = trainingMinutes - trainingSplits[1]
+  const warmUpMinutes = trainingSplits.value[0]
+  const exerciseMinutes = trainingSplits.value[1] - trainingSplits.value[0]
+  const vsExerciseMinutes = trainingMinutes.value - trainingSplits.value[1]
   const warmUpExercises = generateWarmUp(warmUpMinutes)
   exercises.push(warmUpExercises)
   const exerciseNormal = generateNormalExercise(exerciseMinutes)
@@ -142,9 +158,9 @@ function randomRange(min: number, max: number): number {
   return Math.floor(random() * range + min)
 }
 function resetFeatures() {
-  selectedCategories = []
-  trainingMinutes = 60
-  trainingSplits = [15, 45]
+  selectedCategories.value = []
+  trainingMinutes.value = 60
+  trainingSplits.value = [15, 45]
 }
 
 </script>
