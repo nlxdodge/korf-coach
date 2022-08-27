@@ -6,6 +6,5 @@
 [build.environment]
   NETLIFY_USE_YARN = "true"
   NODE_VERSION = "16"
-  NPM_VERSION = "8"
-  YARN_VERSION = "3"
+  YARN_VERSION = "3.2.3"
 
