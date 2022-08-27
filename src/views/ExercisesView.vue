@@ -4,7 +4,7 @@
     <div class="exercise-filter">
       <Card>
         <template #content>
-          In dit overzicht zijn alle oefeningen nog een keer terug te lezen. Heb
+          In dit overzicht zijn alle {{ store.state.exercises.length }} oefeningen nog een keer terug te lezen. Heb
           jij ook een idee voor een oefening? Neem dan contact op bij Info in het
           menu.
         </template>

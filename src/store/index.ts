@@ -1,8 +1,10 @@
-import { Category } from '@/models/Category'
 import { State } from '@/models/State'
+import { Exercise } from '@/models/Exercise'
+import { Category } from '@/models/Category';
 import { createStore } from 'vuex'
 import data from './korfbal.json'
-import { Exercise } from '../models/Exercise'
+
+
 
 const state: State = {
   categories: [],

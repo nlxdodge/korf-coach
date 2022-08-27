@@ -2,10 +2,10 @@
   <div class="info-component">
     <FontAwesomeIcon 
       :icon="['fas', 'question-circle']"
-      @click="show.value = !show.value"
+      @click="show = !show"
     />
     <Dialog 
-      v-model:visible="show.value"
+      v-model:visible="show"
       position="bottom"
       :closable="false"
     >
@@ -16,7 +16,7 @@
       <template #footer>
         <Button 
           label="Sluiten" 
-          @click="show.value = !show.value"
+          @click="show = !show"
         />
       </template>
     </Dialog>
@@ -24,10 +24,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps } from 'vue'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import Button from 'primevue/button'
-import Dialog from 'primevue/dialog'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import Button from 'primevue/button';
+import Dialog from 'primevue/dialog';
+import { defineProps, ref } from 'vue';
 
 const show = ref(false)
 const props = defineProps({
@@ -39,6 +39,8 @@ const props = defineProps({
 </script>
 <style scoped lang="scss">
 .info-component {
+  display: inline-block;
+  
   svg:hover {
     cursor: pointer;
   }
