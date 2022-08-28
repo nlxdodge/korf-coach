@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-  import { onBeforeMount } from 'vue';
-import { useStore } from 'vuex';
-import NavigationComponent from './components/NavigationComponent.vue';
+  import { onBeforeMount } from 'vue'
+  import { useStore } from 'vuex'
+  import NavigationComponent from './components/NavigationComponent.vue'
 
   const store = useStore()
 
@@ -42,12 +42,18 @@ import NavigationComponent from './components/NavigationComponent.vue';
 </script>
 
 <style lang="scss">
-  $primary-color: #cc0c0c;
+  $primary-color: #38aecc;
 
   html {
     background-color: $primary-color;
     width: 100%;
     height: 100%;
+  }
+
+  body {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-bottom: 50px;
   }
 
   #app {
@@ -88,6 +94,16 @@ import NavigationComponent from './components/NavigationComponent.vue';
       svg {
         width: 40px;
       }
+    }
+  }
+
+  .p-card {
+    border-radius: 25px;
+    filter: drop-shadow(50px 50px 50px rgba(28, 34, 33, 0.15));
+    padding: 30px 20px 30px;
+
+    .p-card-body {
+      padding: 0;
     }
   }
 </style>
