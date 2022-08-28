@@ -59,29 +59,27 @@
     </template>
   </Card>
   <Card class="training">
-    <template #title>
-      Training
-    </template>
+    <template #title> Training </template>
   </Card>
   <ExerciseCard
-        v-for="exercise in generatedTraining"
-        :key="exercise.name"
-        class="exercise-card"
-        :exercise="exercise"
-      />
+    v-for="exercise in generatedTraining"
+    :key="exercise.name"
+    class="exercise-card"
+    :exercise="exercise"
+  />
 </template>
 
 <script setup lang="ts">
   import ExerciseCard from '@/components/ExerciseComponent.vue'
-import InfoComponent from '@/components/InfoComponent.vue'
-import { Category } from '@/models/Category'
-import { Exercise } from '@/models/Exercise'
-import Button from 'primevue/button'
-import Card from 'primevue/card'
-import MultiSelect from 'primevue/multiselect'
-import Slider from 'primevue/slider'
-import { ref, watch } from 'vue'
-import { useStore } from 'vuex'
+  import InfoComponent from '@/components/InfoComponent.vue'
+  import { Category } from '@/models/Category'
+  import { Exercise } from '@/models/Exercise'
+  import Button from 'primevue/button'
+  import Card from 'primevue/card'
+  import MultiSelect from 'primevue/multiselect'
+  import Slider from 'primevue/slider'
+  import { ref, watch } from 'vue'
+  import { useStore } from 'vuex'
 
   const store = useStore()
 

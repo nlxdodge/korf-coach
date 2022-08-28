@@ -1,59 +1,34 @@
 <template>
   <div>
-    <div
-      class="nav-hamburger"
-      @click="navVisible = true"
-    >
-      <font-awesome-icon :icon="['fas', 'bars']" />
-    </div>
-    <Sidebar
-      :visible="navVisible"
-      :show-close-icon="false"
-    >
-      <nav>
-        <p>Korfbal Trainer</p>
-        <router-link
-          to="/"
-          @click="navVisible = false"
-        >
-          <font-awesome-icon :icon="['fas', 'running']" />
-          Maak Training
-        </router-link>
-        <router-link
-          to="/exercises"
-          @click="navVisible = false"
-        >
-          <font-awesome-icon :icon="['fas', 'list']" />
-          Oefeningen
-        </router-link>
-        <router-link
-          to="/info"
-          @click="navVisible = false"
-        >
-          <font-awesome-icon :icon="['fas', 'question-circle']" />
-          Info
-        </router-link>
-        <a
-          href="#"
-          @click="navVisible = false"
-        >
-          <font-awesome-icon :icon="['fas', 'arrow-alt-circle-left']" />
-          Sluiten
-        </a>
-      </nav>
-    </Sidebar>
+    <NavigationComponent :items="navItems" />
     <router-view />
   </div>
 </template>
 
 <script setup lang="ts">
-  import Sidebar from 'primevue/sidebar';
-import { onBeforeMount, ref } from 'vue';
+  import { onBeforeMount } from 'vue';
 import { useStore } from 'vuex';
+import NavigationComponent from './components/NavigationComponent.vue';
 
   const store = useStore()
 
-  let navVisible = ref(false)
+  const navItems = [
+    {
+      label: 'Maak Training',
+      icon: 'running',
+      url: '/',
+    },
+    {
+      label: 'Oefeningen',
+      icon: 'list',
+      url: '/exercises',
+    },
+    {
+      label: 'Info',
+      icon: 'question-circle',
+      url: '/info',
+    },
+  ]
 
   onBeforeMount(() => {
     store.dispatch('loadData')
@@ -71,6 +46,8 @@ import { useStore } from 'vuex';
 
   html {
     background-color: $primary-color;
+    width: 100%;
+    height: 100%;
   }
 
   #app {
