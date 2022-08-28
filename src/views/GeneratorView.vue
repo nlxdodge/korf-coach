@@ -1,12 +1,12 @@
 <template>
   <div class="generator">
-    <h1>Maak Training</h1>
+    <h1>Korfbal Trainer</h1>
     <Generator />
   </div>
 </template>
 
 <script setup lang="ts">
-  import Generator from '@/components/GeneratorComponent.vue';
+  import Generator from '@/components/GeneratorComponent.vue'
 </script>
 
 <style scoped lang="scss">
@@ -17,3 +17,4 @@
     }
   }
 </style>
+

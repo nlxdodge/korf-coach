@@ -1,7 +1,7 @@
 <template>
   <Card class="training-generator">
     <template #title>
-      Training Samenstelling
+      Stel een training samen
       <InfoComponent title="Hoe werkt het?">
         De training structuur die wij aanhouden begint met een warming-up met
         daarna oefeningen en als laatste een partijtje. De categoriën kunnen
@@ -45,21 +45,21 @@
       </div>
     </template>
     <template #footer>
-      <span class="actions p-buttonset">
+      <div class="actions">
         <Button @click="generateTraining()">
           <font-awesome-icon :icon="['fas', 'cogs']" />Maak Training
         </Button>
         <Button
-          class="p-button-danger"
+          class="p-button-danger p-button-outlined"
           @click="resetFeatures()"
         >
           <font-awesome-icon :icon="['fas', 'trash']" />Reset
         </Button>
-      </span>
+      </div>
     </template>
   </Card>
   <Card class="training">
-    <template #title>Training</template>
+    <template #title>Jouw persoonlijke training</template>
   </Card>
   <ExerciseCard
     v-for="exercise in generatedTraining"
@@ -158,6 +158,7 @@
 <style scoped lang="scss">
   .training-generator {
     margin-top: 25px;
+    color: #1c2221;
 
     .time-display {
       display: flex;
@@ -166,6 +167,10 @@
       p {
         flex: 0 0 25%;
       }
+    }
+
+    .p-slider-range {
+      background: #cc0c0c;
     }
 
     .help {
@@ -177,6 +182,15 @@
     }
 
     .actions {
+      display: flex;
+      gap: 20px;
+
+      button {
+        flex-grow: 1;
+        border-radius: 5px;
+        justify-content: center;
+      }
+
       svg {
         margin-right: 10px;
       }
@@ -185,14 +199,21 @@
 
   .training {
     margin-top: 25px;
+    border-radius: 25px 25px 0 0;
+    border: none;
 
-    div {
-      margin-bottom: 0;
-      display: none;
+    .p-card-content {
+      height: 0;
+      padding: 0;
     }
   }
 
   .exercise-card {
-    margin-top: 20px;
+    border-radius: 0;
+    border: none;
+  }
+
+  .exercise-card:last-child {
+    border-radius: 0 0 25px 25px;
   }
 </style>
