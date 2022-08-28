@@ -22,38 +22,38 @@
 </template>
 
 <script setup lang="ts">
-import Card from 'primevue/card'
-import { defineProps } from 'vue'
-import { useStore } from 'vuex'
+  import Card from 'primevue/card'
+  import { defineProps } from 'vue'
+  import { useStore } from 'vuex'
 
-const store = useStore()
+  const store = useStore()
 
-const props = defineProps({
-  exercise: {
-    type: Object,
-    required: true
-  }
-})
-
-function getCategories () {
-  return props.exercise.categories.map((category: string) => {
-    return store.getters.getCategoryByValue(category)
+  const props = defineProps({
+    exercise: {
+      type: Object,
+      required: true,
+    },
   })
-}
+
+  function getCategories() {
+    return props.exercise.categories.map((category: string) => {
+      return store.getters.getCategoryByValue(category)
+    })
+  }
 </script>
 
 <style scoped lang="scss">
-.exercise-card {
-  .categories {
-    display: flex;
+  .exercise-card {
+    .categories {
+      display: flex;
 
-    @media screen and (min-width: 676px) {
-      display: block;
-    }
+      @media screen and (min-width: 676px) {
+        display: block;
+      }
 
-    .category {
-      margin-right: 15px;
+      .category {
+        margin-right: 15px;
+      }
     }
   }
-}
 </style>

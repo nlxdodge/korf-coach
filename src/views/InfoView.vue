@@ -5,19 +5,13 @@
       <Card>
         <template #content>
           <p>
-            Deze app is gemaakt om gemakkelijk een training te kunnen `genereren`,
-            om zo toch een goede training neer te kunnen zetten. Mocht je
-            suggesties hebben kan je onderstaande knop gebruiken om een e-mail te
-            sturen.
+            Deze app is gemaakt om gemakkelijk een training te kunnen
+            `genereren`, om zo toch een goede training neer te kunnen zetten.
           </p>
-          <a href="mailto:doodoking@live.nl">
-            <Button class="p-button-lg">
-              <font-awesome-icon :icon="['fas', 'envelope']" />E-mail sturen
-            </Button>
-          </a>
           <p>
-            Zelf een bijdragen maken aan Korfbal Trainer?
-            Korfbal Trainer is een Open Source project gemaakt in VueJS 3 + Composition API + Typescript + Yarn 2.
+            Probleem gevonden of zelf een bijdragen maken aan Korfbal Trainer?
+            Klik dan op onderstaande link. Korfbal Trainer is een Open Source
+            project gemaakt in VueJS 3 + Composition API + Typescript + Yarn 2.
           </p>
           <a href="https://github.com/nlxdodge/korfbal-trainer">
             <Button class="p-button-lg">
@@ -31,40 +25,40 @@
 </template>
 
 <script setup lang="ts">
-import Button from 'primevue/button';
-import Card from 'primevue/card';
+  import Button from 'primevue/button'
+  import Card from 'primevue/card'
 </script>
 
 <style scoped lang="scss">
-.info {
-  h1 {
-    text-align: center;
-    color: #fff;
-  }
+  .info {
+    h1 {
+      text-align: center;
+      color: #fff;
+    }
 
-  .flex-center {
-    display: flex;
-    justify-content: center;
+    .flex-center {
+      display: flex;
+      justify-content: center;
 
-    .p-card {
-      max-width: 600px;
+      .p-card {
+        max-width: 600px;
 
-      a {
-        color: #fff;
-        text-align: center;
-        text-decoration: none;
+        a {
+          color: #fff;
+          text-align: center;
+          text-decoration: none;
 
-        svg {
-          margin-right: 10px;
-        }
+          svg {
+            margin-right: 10px;
+          }
 
-        button {
-          display: block;
-          width: 100%;
-          margin: 10px auto;
+          button {
+            display: block;
+            width: 100%;
+            margin: 10px auto;
+          }
         }
       }
     }
   }
-}
 </style>

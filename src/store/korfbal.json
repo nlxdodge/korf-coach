@@ -100,7 +100,7 @@
                 "warm-up"
             ],
             "name": "Legertje",
-            "description": "Het hele team loopt op goed tempo om het veld. Als de trainer 1 roept doen alle spelers een spring, 2 een kikkerspring, 3 is omdraaien en 4 is een klein sprintje trekken",
+            "description": "Het hele team loopt op goed tempo om het veld. Als de trainer 1 roept doen alle spelers een sprong, 2 een kikkerspring, 3 is omdraaien en 4 is een klein sprintje trekken",
             "peopleNeeded": "Hele team",
             "switchWhen": "",
             "exerciseFinishedWhen": "",
@@ -455,7 +455,9 @@
                 "vs",
                 "shoot"
             ],
-            "modifiers": ["ending"],
+            "modifiers": [
+                "ending"
+            ],
             "name": "Korven Dans",
             "description": "Elke paal moet tienen, dan schuif je een paal op. Haal je iemand in door daarna weer 10 te scoren dan moet die paal uit het spel worden gehaald. Speel door tot het laatste team over is.",
             "peopleNeeded": "2-3",

@@ -59,7 +59,7 @@
     </template>
   </Card>
   <Card class="training">
-    <template #title> Jouw persoonlijke training </template>
+    <template #title>Jouw persoonlijke training</template>
   </Card>
   <ExerciseCard
     v-for="exercise in generatedTraining"
@@ -155,7 +155,7 @@
   }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   .training-generator {
     margin-top: 25px;
     color: #1c2221;

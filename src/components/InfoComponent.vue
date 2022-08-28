@@ -1,10 +1,10 @@
 <template>
   <div class="info-component">
-    <FontAwesomeIcon 
+    <FontAwesomeIcon
       :icon="['fas', 'question-circle']"
       @click="show = !show"
     />
-    <Dialog 
+    <Dialog
       v-model:visible="show"
       position="bottom"
       :closable="false"
@@ -14,8 +14,8 @@
       </template>
       <slot />
       <template #footer>
-        <Button 
-          label="Sluiten" 
+        <Button
+          label="Sluiten"
           @click="show = !show"
         />
       </template>
@@ -24,25 +24,25 @@
 </template>
 
 <script setup lang="ts">
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import Button from 'primevue/button';
-import Dialog from 'primevue/dialog';
-import { defineProps, ref } from 'vue';
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+  import Button from 'primevue/button'
+  import Dialog from 'primevue/dialog'
+  import { defineProps, ref } from 'vue'
 
-const show = ref(false)
-const props = defineProps({
-  title : { 
-    type: String,
-    default: ""
-  }
-})
+  const show = ref(false)
+  const props = defineProps({
+    title: {
+      type: String,
+      default: '',
+    },
+  })
 </script>
 <style scoped lang="scss">
-.info-component {
-  display: inline-block;
-  
-  svg:hover {
-    cursor: pointer;
+  .info-component {
+    display: inline-block;
+
+    svg:hover {
+      cursor: pointer;
+    }
   }
-}
 </style>
