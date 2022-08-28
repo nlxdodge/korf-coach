@@ -1,8 +1,9 @@
 <template>
   <div class="exercises">
-    <h1>Alle oefeningen</h1>
+    <h1>Korfbal Trainer</h1>
     <div class="exercise-filter">
       <Card>
+        <template #header>Alle oefeningen</template>
         <template #content>
           In dit overzicht zijn alle
           {{ store.state.exercises.length }} oefeningen nog een keer terug te
@@ -37,12 +38,12 @@
 
 <script setup lang="ts">
   import ExerciseCard from '@/components/ExerciseComponent.vue'
-import { Category } from '@/models/Category'
-import { Exercise } from '@/models/Exercise'
-import Card from 'primevue/card'
-import MultiSelect from 'primevue/multiselect'
-import { computed, ref } from 'vue'
-import { useStore } from 'vuex'
+  import { Category } from '@/models/Category'
+  import { Exercise } from '@/models/Exercise'
+  import Card from 'primevue/card'
+  import MultiSelect from 'primevue/multiselect'
+  import { computed, ref } from 'vue'
+  import { useStore } from 'vuex'
 
   const store = useStore()
   let selectedCategories = ref([] as Category[])
@@ -63,11 +64,11 @@ import { useStore } from 'vuex'
   }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   .exercises {
     h1 {
       text-align: center;
-      color: #fff;
+      color: $secondary-color;
     }
 
     .exercise-filter {

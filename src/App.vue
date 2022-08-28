@@ -42,8 +42,6 @@
 </script>
 
 <style lang="scss">
-  $primary-color: #38aecc;
-
   html {
     background-color: $primary-color;
     width: 100%;

@@ -13,8 +13,7 @@
   .generator {
     h1 {
       text-align: center;
-      color: #fff;
+      color: $secondary-color;
     }
   }
 </style>
-

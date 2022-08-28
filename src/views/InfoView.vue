@@ -1,8 +1,9 @@
 <template>
   <div class="info">
-    <h1>Info</h1>
+    <h1>Korfbal Trainer</h1>
     <div class="flex-center">
       <Card>
+        <template #header>Alle oefeningen</template>
         <template #content>
           <p>
             Deze app is gemaakt om gemakkelijk een training te kunnen
@@ -33,7 +34,7 @@
   .info {
     h1 {
       text-align: center;
-      color: #fff;
+      color: $secondary-color;
     }
 
     .flex-center {
@@ -44,7 +45,7 @@
         max-width: 600px;
 
         a {
-          color: #fff;
+          color: $secondary-color;
           text-align: center;
           text-decoration: none;
 

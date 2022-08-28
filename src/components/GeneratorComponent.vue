@@ -15,11 +15,13 @@
           <MultiSelect
             id="category-select"
             v-model="selectedCategories"
+            name="category-select"
             class="category-select"
             :options="store.state.categories"
             option-label="label"
             scroll-height="250px"
             display="chip"
+            :show-toggle-all="false"
           />
           <label for="category-select">Selecteer categoriën</label>
         </span>
@@ -60,26 +62,30 @@
   </Card>
   <Card class="training">
     <template #title>Jouw persoonlijke training</template>
+    <template #content>
+      <Timeline :value="generatedTraining"></Timeline>
+      <ExerciseCard
+        v-for="exercise in generatedTraining"
+        :key="exercise.name"
+        class="exercise-card"
+        :exercise="exercise"
+      />
+    </template>
   </Card>
-  <ExerciseCard
-    v-for="exercise in generatedTraining"
-    :key="exercise.name"
-    class="exercise-card"
-    :exercise="exercise"
-  />
 </template>
 
 <script setup lang="ts">
   import ExerciseCard from '@/components/ExerciseComponent.vue'
-  import InfoComponent from '@/components/InfoComponent.vue'
-  import { Category } from '@/models/Category'
-  import { Exercise } from '@/models/Exercise'
-  import Button from 'primevue/button'
-  import Card from 'primevue/card'
-  import MultiSelect from 'primevue/multiselect'
-  import Slider from 'primevue/slider'
-  import { ref, watch } from 'vue'
-  import { useStore } from 'vuex'
+import InfoComponent from '@/components/InfoComponent.vue'
+import { Category } from '@/models/Category'
+import { Exercise } from '@/models/Exercise'
+import Button from 'primevue/button'
+import Card from 'primevue/card'
+import MultiSelect from 'primevue/multiselect'
+import Slider from 'primevue/slider'
+import Timeline from 'primevue/timeline'
+import { ref, watch } from 'vue'
+import { useStore } from 'vuex'
 
   const store = useStore()
 
@@ -199,7 +205,7 @@
 
   .training {
     margin-top: 25px;
-    border-radius: 25px 25px 0 0;
+    border-radius: 25px;
     border: none;
 
     .p-card-content {
@@ -211,9 +217,5 @@
   .exercise-card {
     border-radius: 0;
     border: none;
-  }
-
-  .exercise-card:last-child {
-    border-radius: 0 0 25px 25px;
   }
 </style>

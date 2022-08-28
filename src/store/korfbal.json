@@ -26,7 +26,7 @@
             "label": "Onderling",
             "value": "vs",
             "icon": "people-arrows",
-            "coolor": "red"
+            "color": "red"
         },
         {
             "order": 5,

@@ -32,8 +32,8 @@
 </template>
 
 <script setup lang="ts">
-  import { defineProps, ref } from 'vue'
-  import { useRouter } from 'vue-router'
+  import { defineProps, ref } from 'vue';
+import { useRouter } from 'vue-router';
   const router = useRouter()
 
   let showNavigation = ref(false)
@@ -59,16 +59,16 @@
     bottom: 25px;
     width: 50px;
     height: 53px;
-    font-size: 2rem;
-    color: red;
-    background-color: white;
+    font-size: 32px;
+    color: $primary-color;
+    background-color: $secondary-color;
     padding: 10px;
     text-align: center;
     border-radius: 3px;
 
     &:hover {
       cursor: pointer;
-      color: lighten(red, 25%);
+      color: lighten($primary-color, 25%);
     }
   }
 
@@ -84,7 +84,7 @@
 
     .navigation-item {
       font-size: 2rem;
-      color: red;
+      color: $primary-color;
       background-color: white;
       padding: 10px;
       text-align: center;
@@ -102,11 +102,12 @@
       .label {
         display: block;
         font-size: 0.75rem;
+        line-height: 12px;
       }
 
       &:hover {
         cursor: pointer;
-        color: lighten(red, 25%);
+        color: lighten($primary-color, 25%);
       }
     }
   }

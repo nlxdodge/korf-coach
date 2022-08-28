@@ -13,7 +13,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#cc0c0c",
-    "background_color": "#cc0c0c",
+    "theme_color": "#38aecc",
+    "background_color": "#38aecc",
+    "start_url": "https://korfbal-trainer.netlify.app",
     "display": "standalone"
 }
