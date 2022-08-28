@@ -53,6 +53,7 @@ import { useRouter } from 'vue-router';
 
 <style scoped lang="scss">
   .navigation-menu {
+    z-index: 999;
     position: fixed;
     right: 25px;
     bottom: 25px;
@@ -72,6 +73,7 @@ import { useRouter } from 'vue-router';
   }
 
   .navigation-list {
+    z-index: 999;
     position: fixed;
     right: 25px;
     bottom: 25px;
