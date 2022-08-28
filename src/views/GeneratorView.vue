@@ -9,7 +9,7 @@
 import Generator from '@/components/GeneratorComponent.vue';
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .generator {
   h1 {
     text-align: center;

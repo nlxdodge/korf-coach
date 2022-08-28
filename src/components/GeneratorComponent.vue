@@ -59,7 +59,7 @@
     </template>
   </Card>
   <Card class="training">
-    <template #title> Training </template>
+    <template #title>Training</template>
   </Card>
   <ExerciseCard
     v-for="exercise in generatedTraining"
@@ -155,7 +155,7 @@
   }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   .training-generator {
     margin-top: 25px;
 
@@ -185,5 +185,14 @@
 
   .training {
     margin-top: 25px;
+
+    div {
+      margin-bottom: 0;
+      display: none;
+    }
+  }
+
+  .exercise-card {
+    margin-top: 20px;
   }
 </style>
