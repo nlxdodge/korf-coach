@@ -32,8 +32,8 @@
 </template>
 
 <script setup lang="ts">
-  import { defineProps, ref } from 'vue';
-import { useRouter } from 'vue-router';
+  import { defineProps, ref } from 'vue'
+  import { useRouter } from 'vue-router'
   const router = useRouter()
 
   let showNavigation = ref(false)
