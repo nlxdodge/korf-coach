@@ -1,6 +1,6 @@
 export interface Exercise {
     id: string
-    categories: string[]
+    categoryIds: string[]
     name: string
     description: string
     peopleNeeded: string
@@ -9,5 +9,6 @@ export interface Exercise {
     timeEstimate: string
     repeatTimesGenerate: string
     scoreGenerate: string
+    exerciseTypeId: string
     subExercises: Exercise[]
 }
