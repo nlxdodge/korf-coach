@@ -6,8 +6,10 @@ export interface Exercise {
     peopleNeeded: string
     switchWhen: string
     exerciseFinishedWhen: string
-    timeEstimate: string
+    timeGenerate: string
     repeatTimesGenerate: string
     scoreGenerate: string
     subExercises: Exercise[]
+
+    generatedMinutes: number
 }

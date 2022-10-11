@@ -9,6 +9,7 @@
           v-for="category in getCategories()"
           :key="category.order"
           class="category"
+          :style="'color: ' + category.color + ';'"
         >
           <font-awesome-icon :icon="['fas', category.icon]" />
           {{ category.label }}
@@ -46,11 +47,6 @@
   .exercise-card {
     .categories {
       display: flex;
-
-      @media screen and (min-width: 676px) {
-        display: block;
-      }
-
       .category {
         margin-right: 15px;
       }

@@ -104,4 +104,8 @@
       padding: 0;
     }
   }
+
+  .align-center {
+    text-align: center;
+  }
 </style>

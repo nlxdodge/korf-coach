@@ -5,49 +5,49 @@
             "label": "Warming Up",
             "value": "warm-up",
             "icon": "running",
-            "color": "green"
+            "color": "#72b043"
         },
         {
             "order": 2,
             "label": "Schieten",
             "value": "shoot",
             "icon": "crosshairs",
-            "color": "orange"
+            "color": "#f37324"
         },
         {
             "order": 3,
-            "label": "Bewegen",
+            "label": "Conditie",
             "value": "run",
             "icon": "walking",
-            "color": "purple"
+            "color": "#53518c"
         },
         {
             "order": 4,
             "label": "Onderling",
             "value": "vs",
             "icon": "people-arrows",
-            "color": "red"
+            "color": "#e12729"
         },
         {
             "order": 5,
             "label": "Fun",
             "value": "fun",
             "icon": "smile",
-            "color": "yellow"
+            "color": "#f8cc1b"
         },
         {
             "order": 6,
             "label": "Partijtje",
             "value": "vs-all",
             "icon": "users",
-            "color": "grey"
+            "color": "#939ca3"
         },
         {
             "order": 7,
             "label": "Water Oefening",
             "value": "water",
             "icon": "tint",
-            "color": "blue"
+            "color": "#1572a1"
         }
     ],
     "warming-up-exercises": [
@@ -69,11 +69,13 @@
         },
         {
             "label": "Shoulder Taps",
-            "description": ""
+            "description": "",
+            "repeatTimesGenerate": "5-20"
         },
         {
             "label": "Sit-ups",
-            "description": ""
+            "description": "",
+            "repeatTimesGenerate": "5-15"
         },
         {
             "label": "Sprintje trekken",
@@ -90,6 +92,11 @@
         {
             "label": "Kruis Links",
             "description": ""
+        },
+        {
+            "label": "Opdrukken",
+            "description": "",
+            "repeatTimesGenerate": "3-10"
         }
     ],
     "exercises": [
@@ -104,7 +111,7 @@
             "peopleNeeded": "Hele team",
             "switchWhen": "",
             "exerciseFinishedWhen": "",
-            "timeEstimate": "3-5",
+            "timeGenerate": "3-5",
             "repeatTimesGenerate": "",
             "scoreGenerate": ""
         },
@@ -119,7 +126,7 @@
             "peopleNeeded": "Hele team",
             "switchWhen": "",
             "exerciseFinishedWhen": "10x gooien",
-            "timeEstimate": "7-15",
+            "timeGenerate": "7-15",
             "repeatTimesGenerate": "8-15",
             "scoreGenerate": ""
         },
@@ -135,7 +142,7 @@
             "peopleNeeded": "2",
             "switchWhen": "",
             "exerciseFinishedWhen": "",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "5-8",
             "scoreGenerate": ""
         },
@@ -151,7 +158,7 @@
             "peopleNeeded": "2-3",
             "switchWhen": "Wissel per beurt achter elkaar door",
             "exerciseFinishedWhen": "${score} scoren",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "1",
             "scoreGenerate": "10-30"
         },
@@ -167,7 +174,7 @@
             "peopleNeeded": "2-3",
             "switchWhen": "Wissel nadat de speler ${score} keer heeft gescoort",
             "exerciseFinishedWhen": "${score} scoren",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "1",
             "scoreGenerate": "8-16"
         },
@@ -181,7 +188,7 @@
             "peopleNeeded": "2",
             "switchWhen": "Wissel nadat de speler 5 keer heeft gescoord",
             "exerciseFinishedWhen": "",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "2",
             "scoreGenerate": ""
         },
@@ -195,7 +202,7 @@
             "peopleNeeded": "2",
             "switchWhen": "Wissel nadat de speler bij alle hoeken heeft gescoord",
             "exerciseFinishedWhen": "",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "2",
             "scoreGenerate": ""
         },
@@ -209,7 +216,7 @@
             "peopleNeeded": "2",
             "switchWhen": "Wissel nadat de speler bij alle hoeken heeft gescoord",
             "exerciseFinishedWhen": "een paal ${score} of meer punten heeft",
-            "timeEstimate": "4-10",
+            "timeGenerate": "4-10",
             "repeatTimesGenerate": "1-2",
             "scoreGenerate": "125-250"
         },
@@ -224,7 +231,7 @@
             "peopleNeeded": "2",
             "switchWhen": "Wissel na elk ronde",
             "exerciseFinishedWhen": "${score} scoren",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "1-2",
             "scoreGenerate": "10-15"
         },
@@ -239,7 +246,7 @@
             "peopleNeeded": "2-3",
             "switchWhen": "Wissel na elk schot met 3 personen en met 2 personen 2 keer.",
             "exerciseFinishedWhen": "${score} scoren",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "1",
             "scoreGenerate": "10-15"
         },
@@ -254,7 +261,7 @@
             "peopleNeeded": "2-3",
             "switchWhen": "",
             "exerciseFinishedWhen": "${score} scoren",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "2",
             "scoreGenerate": "10-15"
         },
@@ -268,7 +275,7 @@
             "peopleNeeded": "2",
             "switchWhen": "Wissel na elke beurt",
             "exerciseFinishedWhen": "",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "2",
             "scoreGenerate": ""
         },
@@ -282,7 +289,7 @@
             "peopleNeeded": "2",
             "switchWhen": "Wissel als een persoon 4 hoeken heeft gescoord",
             "exerciseFinishedWhen": "Als twee spelers ${rounds} rondes hebben gescoord",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "2",
             "scoreGenerate": ""
         },
@@ -296,7 +303,7 @@
             "peopleNeeded": "2-3",
             "switchWhen": "Wissel na elke beurt",
             "exerciseFinishedWhen": "${score} scoren",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "2",
             "scoreGenerate": "10"
         },
@@ -311,7 +318,7 @@
             "peopleNeeded": "3",
             "switchWhen": "Wissel dat speler 2 of 3 de bal 3 keer heeft gevangen",
             "exerciseFinishedWhen": "",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "6",
             "scoreGenerate": ""
         },
@@ -325,7 +332,7 @@
             "peopleNeeded": "2",
             "switchWhen": "Wissel nadat de speler 2 keer heeft geschoten",
             "exerciseFinishedWhen": "${score} scoren",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "2",
             "scoreGenerate": "8-16"
         },
@@ -340,7 +347,7 @@
             "peopleNeeded": "2-3",
             "switchWhen": "Wissel nadat de speler ${score} keer heeft gescoort",
             "exerciseFinishedWhen": "${score} scoren",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "2",
             "scoreGenerate": "10"
         },
@@ -356,7 +363,7 @@
             "peopleNeeded": "2-3",
             "switchWhen": "Wissel om de beurt",
             "exerciseFinishedWhen": "${score} scoren",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "2",
             "scoreGenerate": "6-12"
         },
@@ -372,7 +379,7 @@
             "peopleNeeded": "2-3",
             "switchWhen": "Wissel om de beurt",
             "exerciseFinishedWhen": "${score} scoren",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "2",
             "scoreGenerate": "5-10"
         },
@@ -387,7 +394,7 @@
             "peopleNeeded": "2-3",
             "switchWhen": "Als de persoon na 3x schieten niet heeft gescoord moet er worden gewisseld, als de speler bank roept om de score te banken of als de speler na het start sein mist.",
             "exerciseFinishedWhen": "",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "2",
             "scoreGenerate": ""
         },
@@ -402,7 +409,7 @@
             "peopleNeeded": "2-3",
             "switchWhen": "Wissel om de 2x schieten of met 3 personen om ste beurt",
             "exerciseFinishedWhen": "Paal met met pionnen over wint",
-            "timeEstimate": "3-5",
+            "timeGenerate": "3-5",
             "repeatTimesGenerate": "3",
             "scoreGenerate": ""
         },
@@ -411,12 +418,12 @@
             "categories": [
                 "vs-all"
             ],
-            "name": "Regulier partijtje",
+            "name": "Regulier Partijtje",
             "description": "Regulier partijtje spelen, kan met 1 paal of twee palen afhangende van het aantal mensen. Eventueel met paal aan de zijkant voor shoten met wissel.",
             "peopleNeeded": "4 vs 4 (8), 4 vs 4 vs 4 (12) of 8 vs 8 (16)",
             "switchWhen": "Wissel waar nodig of om de 5 minuten",
             "exerciseFinishedWhen": "",
-            "timeEstimate": "15-30",
+            "timeGenerate": "15-30",
             "repeatTimesGenerate": "1",
             "scoreGenerate": ""
         },
@@ -425,12 +432,26 @@
             "categories": [
                 "vs-all"
             ],
-            "name": "Straf partijtje",
+            "name": "Straf Partijtje",
             "description": "Er wordt om de 3 minuten een willekeurige vrijebal of strafworp gegeven, verder normaal partijtje.",
             "peopleNeeded": "4 vs 4 (8), 4 vs 4 vs 4 (12) of 8 vs 8 (16)",
             "switchWhen": "Wissel waar nodig of om de 5 minuten",
             "exerciseFinishedWhen": "",
-            "timeEstimate": "15-30",
+            "timeGenerate": "15-30",
+            "repeatTimesGenerate": "1",
+            "scoreGenerate": ""
+        },
+        {
+            "id": "combo_partijtje",
+            "categories": [
+                "vs-all"
+            ],
+            "name": "Combo Partijtje",
+            "description": "Na elke normale goal wordt er een vrije bal genomen, zit deze ook? Dan mag diezelfde speler nog een strafworp nemen.",
+            "peopleNeeded": "4 vs 4 (8), 4 vs 4 vs 4 (12) of 8 vs 8 (16)",
+            "switchWhen": "Wissel waar nodig of om de 5 minuten",
+            "exerciseFinishedWhen": "",
+            "timeGenerate": "15-30",
             "repeatTimesGenerate": "1",
             "scoreGenerate": ""
         },
@@ -445,7 +466,7 @@
             "peopleNeeded": "Hele team",
             "switchWhen": "",
             "exerciseFinishedWhen": "Laatste persoon die overblijft wint",
-            "timeEstimate": "3-7",
+            "timeGenerate": "3-7",
             "repeatTimesGenerate": "1",
             "scoreGenerate": ""
         },
@@ -463,8 +484,24 @@
             "peopleNeeded": "2-3",
             "switchWhen": "Na elk schot",
             "exerciseFinishedWhen": "Laatste persoon die overblijft wint",
-            "timeEstimate": "3-5",
+            "timeGenerate": "3-5",
             "repeatTimesGenerate": "1",
+            "scoreGenerate": ""
+        },
+        {
+            "id": "goal-esstafette",
+            "categories": [
+                "vs",
+                "shoot",
+                "run"
+            ],
+            "name": "Goal Estafette",
+            "description": "Over 4-6 palen is een parkoer uitgelegd waarbij de elke paal een andere opdracht heeft, dit wordt per speler 1 minuut herhaald. De speler met de hoogste score wint na één ronde. Bij twee rondes kan de eigen speler zijn eigen score verbeteren.",
+            "peopleNeeded": "2-3",
+            "switchWhen": "Na 1 minuut, wissel van persoon",
+            "exerciseFinishedWhen": "De persoon met de hoogste score wint, en ook bij de tweede ronde als mensen hun vorige score hebben verbeterd.",
+            "timeGenerate": "15-30",
+            "repeatTimesGenerate": "1-2",
             "scoreGenerate": ""
         },
         {
@@ -479,25 +516,25 @@
             "peopleNeeded": "2-3",
             "switchWhen": "Nadat alle pionnen op zijn",
             "exerciseFinishedWhen": "Laatste persoon die overblijft wint",
-            "timeEstimate": "3-5",
+            "timeGenerate": "3-5",
             "repeatTimesGenerate": "2",
             "scoreGenerate": ""
         },
         {
-            "id": "mens-erger-je-niet",
+            "id": "ganzenborden",
             "categories": [
                 "vs",
                 "shoot",
                 "run",
                 "fun"
             ],
-            "name": "Mens erger je niet",
-            "description": "",
+            "name": "Ganzenborden",
+            "description": "Teams van 2-3 personen, mens erger je niet bord en twee dobbelstenen is benodigd om dit te spelen. Om de twee minuten wordt een nieuwe opdracht gegeven door de tainer, heb je die opdracht gehaald dan mag je de dobbelstenen gooien. Wie als eerste een rondje heeft gedaan wint. Eventueel kunnen ook nog de scores worden bijgehouden per onderdeel om later op te reflecteren.",
             "peopleNeeded": "2-3",
             "switchWhen": "",
             "exerciseFinishedWhen": "De eerste bij het einde wint",
-            "timeEstimate": "20-45",
-            "repeatTimesGenerate": "0",
+            "timeGenerate": "20-45",
+            "repeatTimesGenerate": "",
             "scoreGenerate": ""
         }
     ]
