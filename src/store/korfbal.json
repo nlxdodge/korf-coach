@@ -50,7 +50,7 @@
             "color": "#1572a1"
         }
     ],
-    "warming-up-exercises": [
+    "subExercises": [
         {
             "label": "Squads",
             "description": ""
@@ -96,7 +96,6 @@
         {
             "label": "Opdrukken",
             "description": "",
-            "repeatTimesGenerate": "3-10"
         }
     ],
     "exercises": [
