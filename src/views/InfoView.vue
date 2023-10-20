@@ -12,7 +12,7 @@
           <p>
             Probleem gevonden of zelf een bijdragen maken aan Korfbal Trainer?
             Klik dan op onderstaande link. Korfbal Trainer is een Open Source
-            project gemaakt in VueJS 3 + Composition API + Typescript + Yarn 2.
+            project gemaakt in Vue 3 using the Composition API and Typescript.
           </p>
           <a href="https://github.com/nlxdodge/korfbal-trainer">
             <Button class="p-button-lg">
@@ -26,8 +26,8 @@
 </template>
 
 <script setup lang="ts">
-  import Button from 'primevue/button'
-  import Card from 'primevue/card'
+  import Button from 'primevue/button';
+import Card from 'primevue/card';
 </script>
 
 <style scoped lang="scss">

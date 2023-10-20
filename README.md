@@ -7,26 +7,24 @@ Live Environment: <https://korfbal-trainer.netlify.app/>
 
 ## Install dependencies
 
-This projects uses Vue3 with Vite and Yarn for faster local development
-
 ```bash
-yarn install
+npm install
 ```
 
 ### Run development environment (Hot-reloads) on <http://localhost:3000/>
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 ### Lint the project
 
 ```bash
-yarn lint
+npm run lint
 ```
 
 ### Build for production environment
 
 ```bash
-yarn build
+npm run build
 ```
