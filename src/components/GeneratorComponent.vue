@@ -81,10 +81,18 @@
           <font-awesome-icon :icon="['fas', 'cogs']" />Maak Training
         </Button>
         <Button
-          class="p-button-danger p-button-outlined"
+          severity="warning"
           @click="resetFeatures()"
         >
-          <font-awesome-icon :icon="['fas', 'trash']" />Reset
+          <font-awesome-icon :icon="['fas', 'eraser']" />Reset
+        </Button>
+      </div>  
+      <div class="actions">
+        <Button severity="Success" @click="saveTraining()">
+          <font-awesome-icon :icon="['fas', 'floppy-disk']" />Opslaan voor later
+        </Button>
+        <Button severity="danger" @click="deleteSave()">
+          <font-awesome-icon :icon="['fas', 'trash']" />Verwijder training
         </Button>
       </div>
     </template>
@@ -137,7 +145,7 @@ import { useStore } from 'vuex'
 
   let selectedCategories = ref([] as Category[])
   let trainingMinutes = ref(60)
-  let trainingSplits = ref([15, 45])
+  let trainingSplits = ref([10, 40])  
 
   watch(trainingMinutes, (newMinutes: number) => {
     if (trainingSplits.value[1] > newMinutes) {
@@ -147,6 +155,24 @@ import { useStore } from 'vuex'
       }
     }
   })
+
+  // check if a training has been saved before and load it
+  loadTraining();
+
+  function saveTraining() {
+    localStorage.setItem("training", JSON.stringify(training.value));
+  }
+
+  function loadTraining() {
+    const trainingString = localStorage.getItem("training")
+    if(trainingString != null) {
+      training.value = JSON.parse(trainingString)
+    }
+  }
+
+  function deleteSave() {
+    localStorage.removeItem("training")
+  }
 
   function generateTraining() {
     const exercises = [] as Exercise[]
@@ -167,10 +193,7 @@ import { useStore } from 'vuex'
     return generatedWarmup
   }
 
-  function generateNormalExercise(
-    categories: Category[],
-    minutes: number,
-  ): Exercise[] {
+  function generateNormalExercise(categories: Category[], minutes: number): Exercise[] {
     let totalTime = 0
     let exercises = [] as Exercise[]
     while (totalTime <= minutes) {
@@ -252,6 +275,7 @@ import { useStore } from 'vuex'
     }
 
     .actions {
+      margin: 0 0 10px 0;
       display: flex;
       gap: 20px;
 
