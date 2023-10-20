@@ -91,7 +91,8 @@
         <Button severity="Success" @click="saveTraining()">
           <font-awesome-icon :icon="['fas', 'floppy-disk']" />Opslaan voor later
         </Button>
-        <Button severity="danger" @click="deleteSave()">
+        <ConfirmDialog />
+        <Button severity="danger" @click="deleteTraining()">
           <font-awesome-icon :icon="['fas', 'trash']" />Verwijder training
         </Button>
       </div>
@@ -126,12 +127,15 @@ import Exercise from '@/models/Exercise'
 import Training from '@/models/Training'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
+import ConfirmDialog from 'primevue/confirmdialog'
 import MultiSelect from 'primevue/multiselect'
 import Slider from 'primevue/slider'
+import { useConfirm } from "primevue/useconfirm"
 import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
 
   const store = useStore()
+  const confirm = useConfirm();
 
   const defaultCategories = ['shoot', 'run', 'vs', 'fun'].map((id: string) => store.getters.getCategoryById(id))
   const defaultNormalExercises = store.state.exercises.filter((e: Exercise) => 
@@ -170,8 +174,12 @@ import { useStore } from 'vuex'
     }
   }
 
-  function deleteSave() {
-    localStorage.removeItem("training")
+  function deleteTraining() {
+    confirm.require({
+        message: 'Weet je zeker dat je de opgeslagen training wilt verwijderen?',
+        header: 'Bevestiging',
+        accept: () => localStorage.removeItem("training")
+    });
   }
 
   function generateTraining() {

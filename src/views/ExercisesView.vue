@@ -3,7 +3,9 @@
     <h1>Korfbal Trainer</h1>
     <div class="exercise-filter">
       <Card>
-        <template #header>Alle oefeningen</template>
+        <template #title>
+          <div class="align-center">Alle oefeningen</div>
+        </template>
         <template #content>
           In dit overzicht zijn alle
           {{ store.state.exercises.length }} oefeningen nog een keer terug te

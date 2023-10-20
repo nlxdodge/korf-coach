@@ -3,7 +3,9 @@
     <h1>Korfbal Trainer</h1>
     <div class="flex-center">
       <Card>
-        <template #header>Alle oefeningen</template>
+        <template #title>
+          <div class="align-center">Informatie</div>
+        </template>
         <template #content>
           <p>
             Deze app is gemaakt om gemakkelijk een training te kunnen
