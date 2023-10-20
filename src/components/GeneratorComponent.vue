@@ -20,7 +20,7 @@
             name="category-select"
             class="category-select"
             :options="store.state.categories"
-            option-label="label"
+            option-label="name"
             scroll-height="250px"
             display="chip"
             :show-toggle-all="false"
@@ -33,7 +33,7 @@
                 <div class="icon">
                   <font-awesome-icon :icon="['fas', option.option.icon]" />
                 </div>
-                <p>{{ option.option.label }}</p>
+                <p>{{ option.option.name }}</p>
               </div>
             </template>
           </MultiSelect>
@@ -112,24 +112,24 @@
 
 <script setup lang="ts">
   import ExerciseCard from '@/components/ExerciseComponent.vue'
-  import InfoComponent from '@/components/InfoComponent.vue'
-  import { Category } from '@/models/Category'
-  import { Exercise } from '@/models/Exercise'
-  import { Training } from '@/models/Training'
-  import Button from 'primevue/button'
-  import Card from 'primevue/card'
-  import MultiSelect from 'primevue/multiselect'
-  import Slider from 'primevue/slider'
-  import { ref, watch } from 'vue'
-  import { useStore } from 'vuex'
+import InfoComponent from '@/components/InfoComponent.vue'
+import Category from '@/models/Category'
+import Exercise from '@/models/Exercise'
+import Training from '@/models/Training'
+import Button from 'primevue/button'
+import Card from 'primevue/card'
+import MultiSelect from 'primevue/multiselect'
+import Slider from 'primevue/slider'
+import { ref, watch } from 'vue'
+import { useStore } from 'vuex'
 
   const store = useStore()
 
-  const defaultCategories = ['shoot', 'run', 'vs', 'fun']
-  const defaultNormalExercises = store.state.exercises.filter((ex: Exercise) =>
-    ex.categories.some((category) => defaultCategories.includes(category)),
+  const defaultCategories = ['shoot', 'run', 'vs', 'fun'].map((id: string) => store.getters.getCategoryById(id))
+  const defaultNormalExercises = store.state.exercises.filter((e: Exercise) => 
+    e.categories.some((c: Category) => defaultCategories.map(x => x.id).includes(c.id))
   )
-
+  
   let training = ref({} as Training)
   training.value.date = new Date()
   training.value.people = 12
@@ -157,15 +157,13 @@
     exercises.push(
       ...generateNormalExercise(selectedCategories.value, exerciseMinutes),
     )
-    const test = generateVSExercise(vsExerciseMinutes)
-    console.log(test)
-    exercises.push(test)
+    exercises.push(generateVSExercise(vsExerciseMinutes))
     training.value.exercises = exercises
   }
 
   function generateWarmUp(minutes: number): Exercise {
     let generatedWarmup = randomExerciseByCategories(['warm-up'])
-    generatedWarmup.generatedMinutes = minutes
+    generatedWarmup.maxTime = minutes
     return generatedWarmup
   }
 
@@ -177,36 +175,32 @@
     let exercises = [] as Exercise[]
     while (totalTime <= minutes) {
       const exercise = randomExerciseByCategories(
-        categories.map((category) => category.label),
+        categories.map((category) => category.id),
       )
-      exercise.generatedMinutes = getGeneratedMinutes(exercise)
       exercises.push(exercise)
-      totalTime += exercise.generatedMinutes
+      totalTime += exercise.maxTime
     }
     return exercises
   }
 
   function generateVSExercise(minutes: number): Exercise {
     let vsExercise = randomExerciseByCategories(['vs-all'])
-    vsExercise.generatedMinutes = minutes
+    vsExercise.maxTime = minutes
     return vsExercise
   }
 
-  function getGeneratedMinutes(exercise: Exercise): number {
-    const min = exercise.timeGenerate.split('-')[0] as unknown as number
-    const max = exercise.timeGenerate.split('-')[1] as unknown as number
-    return randomRange(min, max)
-  }
-
-  function randomExerciseByCategories(categories: string[]) {
+  function randomExerciseByCategories(categories: string[]): Exercise {
+    // filter only by one of the specified categories in the list
     let filteredExercises = store.state.exercises.filter((ex: Exercise) =>
-      ex.categories.some((category) => categories.includes(category)),
+      ex.categories.some((c: Category) => categories.includes(c.id))
     )
+    // use default selection when nothing is found
     if (filteredExercises.length == 0) {
       filteredExercises = defaultNormalExercises
     }
-    let generatedExercise =
-      filteredExercises[randomRange(0, filteredExercises.length)]
+  
+    let generatedExercise = filteredExercises[randomRange(0, filteredExercises.length)]
+    // keep picking random exercises but take no duplicates
     while (generatedExercise in training.value.exercises) {
       generatedExercise =
         filteredExercises[randomRange(0, filteredExercises.length)]
@@ -225,8 +219,9 @@
   function resetFeatures() {
     selectedCategories.value = []
     trainingMinutes.value = 60
-    trainingSplits.value = [15, 45]
+    trainingSplits.value = [10, 40]
     training.value.exercises = []
+    training.value.people = 12
   }
 </script>
 

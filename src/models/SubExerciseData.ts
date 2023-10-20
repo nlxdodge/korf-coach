@@ -1,14 +1,12 @@
-import Category from "./Category";
-
-export default class SubExercise {
+export default class SubExerciseData {
     id: string
     name: string
     description: string
     maxScore: number
     maxTime: number
-    categories: Category[] = [] as Category[]
+    categories: string[] = []
 
-    constructor(id: string, name: string, description: string, maxScore: number, maxTime: number, categories: Category[]) {
+    constructor(id: string, name: string, description: string, maxScore: number, maxTime: number, categories: string[]) {
         this.id = id
         this.name = name
         this.description = description

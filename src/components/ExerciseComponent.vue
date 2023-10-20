@@ -12,7 +12,7 @@
           :style="'color: ' + category.color + ';'"
         >
           <font-awesome-icon :icon="['fas', category.icon]" />
-          {{ category.label }}
+          {{ category.name }}
         </div>
       </div>
     </template>
@@ -23,9 +23,10 @@
 </template>
 
 <script setup lang="ts">
-  import Card from 'primevue/card'
-  import { defineProps } from 'vue'
-  import { useStore } from 'vuex'
+  import Card from 'primevue/card';
+import { defineProps } from 'vue';
+import { useStore } from 'vuex';
+import Category from '../models/Category';
 
   const store = useStore()
 
@@ -37,8 +38,8 @@
   })
 
   function getCategories() {
-    return props.exercise.categories.map((category: string) => {
-      return store.getters.getCategoryByValue(category)
+    return props.exercise.categories.map((c: Category) => {
+      return store.getters.getCategoryById(c.id)
     })
   }
 </script>

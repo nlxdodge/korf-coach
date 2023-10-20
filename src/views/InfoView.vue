@@ -10,9 +10,9 @@
             `genereren`, om zo toch een goede training neer te kunnen zetten.
           </p>
           <p>
-            Probleem gevonden of zelf een bijdragen maken aan Korfbal Trainer?
+            Heb je een probleem gevonden of zelf een bijdragen maken aan Korfbal Trainer?
             Klik dan op onderstaande link. Korfbal Trainer is een Open Source
-            project gemaakt in Vue 3 using the Composition API and Typescript.
+            project gemaakt in Vue 3 met de Composition API en Typescript.
           </p>
           <a href="https://github.com/nlxdodge/korfbal-trainer">
             <Button class="p-button-lg">

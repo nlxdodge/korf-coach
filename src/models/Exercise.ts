@@ -1,14 +1,14 @@
-import { Category } from "./Category"
-import { SubExercise } from "./SubExercise"
+import Category from "./Category";
+import SubExercise from "./SubExercise";
 
-export class Exercise {
+export default class Exercise {
     id: string
     name: string
     description: string
     maxScore: number
     maxTime: number
-    subExercises: SubExercise[]
-    categories: Category[]
+    subExercises: SubExercise[] = [] as SubExercise[]
+    categories: Category[] = [] as Category[]
 
     constructor(id: string, name: string, description: string, maxScore: number, maxTime: number, subExercises: SubExercise[], categories: Category[]) {
         this.id = id

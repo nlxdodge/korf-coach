@@ -15,7 +15,7 @@
             v-model="selectedCategories"
             class="category-select"
             :options="store.state.categories"
-            option-label="label"
+            option-label="name"
             placeholder="Filter op Categorie"
             scroll-height="250px"
             display="chip"
@@ -38,12 +38,12 @@
 
 <script setup lang="ts">
   import ExerciseCard from '@/components/ExerciseComponent.vue'
-  import { Category } from '@/models/Category'
-  import { Exercise } from '@/models/Exercise'
-  import Card from 'primevue/card'
-  import MultiSelect from 'primevue/multiselect'
-  import { computed, ref } from 'vue'
-  import { useStore } from 'vuex'
+import Category from '@/models/Category'
+import Exercise from '@/models/Exercise'
+import Card from 'primevue/card'
+import MultiSelect from 'primevue/multiselect'
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
 
   const store = useStore()
   let selectedCategories = ref([] as Category[])
@@ -58,9 +58,9 @@
     if (selectedCategories.value.length === 0) {
       return true
     }
-    return !selectedCategories.value.find(
-      (selected: Category) => !exercise.categories.includes(selected.value),
-    )
+    return !selectedCategories.value.find((selected: Category) => {
+      return !exercise.categories.includes(selected)
+    })
   }
 </script>
 

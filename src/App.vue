@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-  import { onBeforeMount } from 'vue'
-  import { useStore } from 'vuex'
-  import NavigationComponent from './components/NavigationComponent.vue'
+  import { onBeforeMount } from 'vue';
+import { useStore } from 'vuex';
+import NavigationComponent from './components/NavigationComponent.vue';
 
   const store = useStore()
 
@@ -37,6 +37,8 @@
       store.state.categories.length,
       'exercises:',
       store.state.exercises.length,
+      'subExercises:',
+      store.state.subExercises.length,
     )
   })
 </script>
