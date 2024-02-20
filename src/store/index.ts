@@ -5,7 +5,7 @@ import { InjectionKey } from 'vue'
 import { createStore, Store, useStore as baseUseStore } from 'vuex'
 import ExerciseData from '../models/ExerciseData'
 import SubExerciseData from '../models/SubExerciseData'
-import data from './korfbal.json'
+import data from './data.json'
 import State from './State'
 
 const state: State = new State()

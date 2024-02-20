@@ -7,7 +7,7 @@ import eslintPlugin from 'vite-plugin-eslint'
 export default defineConfig({
   plugins: [vue(), eslintPlugin()],
   resolve: {
-    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
+    extensions: ['.js', '.ts', '.json', '.vue'],
     alias: {
       '@': path.resolve(__dirname, './src'),
     },

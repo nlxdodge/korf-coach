@@ -1,6 +1,6 @@
 <template>
   <div class="generator">
-    <h1>Korfbal Trainer</h1>
+    <h1>Korf Coach</h1>
     <Generator />
   </div>
 </template>

@@ -1,9 +1,9 @@
-# Korfbal Trainer
+# Korf Coach
 
 An app that generates a training based on a list of settings.
 Can generate different types of exercises with different scores or time limits.
 
-Live Environment: <https://korfbal-trainer.netlify.app/>
+Live Environment: <https://korf-coach.netlify.app/>
 
 ## Install dependencies
 

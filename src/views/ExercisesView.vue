@@ -1,6 +1,6 @@
 <template>
   <div class="exercises">
-    <h1>Korfbal Trainer</h1>
+    <h1>Korf Coach</h1>
     <div class="exercise-filter">
       <Card>
         <template #title>

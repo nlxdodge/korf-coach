@@ -1,6 +1,6 @@
 {
-    "name": "Korfbal Trainer",
-    "short_name": "Korfbal Trainer",
+    "name": "Korf Coach",
+    "short_name": "Korf Coach",
     "icons": [
         {
             "src": "/img/icons/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
     ],
     "theme_color": "#38aecc",
     "background_color": "#38aecc",
-    "start_url": "https://korfbal-trainer.netlify.app",
+    "start_url": "https://korf-coach.netlify.app",
     "display": "standalone"
 }
