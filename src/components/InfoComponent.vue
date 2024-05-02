@@ -27,7 +27,7 @@
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Button from 'primevue/button';
 import Dialog from 'primevue/dialog';
-import { defineProps, ref } from 'vue';
+import { ref } from 'vue';
 
   const show = ref(false)
   const props = defineProps({

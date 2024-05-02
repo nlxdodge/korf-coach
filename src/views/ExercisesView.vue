@@ -45,13 +45,13 @@ import Exercise from '@/models/Exercise'
 import Card from 'primevue/card'
 import MultiSelect from 'primevue/multiselect'
 import { computed, ref } from 'vue'
-import { useStore } from 'vuex'
+import { globalStore } from '@/store/GlobalStore'
 
-  const store = useStore()
+  const store = globalStore()
   let selectedCategories = ref([] as Category[])
 
   let filterdExercises = computed(() => {
-    return store.state.exercises.filter((exercise: Exercise) =>
+    return store.exercises.filter((exercise: Exercise) =>
       hasCategory(exercise),
     )
   })

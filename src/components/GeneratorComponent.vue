@@ -14,22 +14,11 @@
     <template #content>
       <div class="p-d-flex">
         <span class="p-float-label">
-          <MultiSelect
-            id="category-select"
-            v-model="selectedCategories"
-            name="category-select"
-            class="category-select"
-            :options="store.state.categories"
-            option-label="name"
-            scroll-height="250px"
-            display="chip"
-            :show-toggle-all="false"
-          >
+          <MultiSelect id="category-select" v-model="selectedCategories" name="category-select" class="category-select"
+            :options="store.state.categories" option-label="name" scroll-height="250px" display="chip"
+            :show-toggle-all="false">
             <template #option="option">
-              <div
-                class="category-select-option"
-                :style="'color: ' + option.option.color + ';'"
-              >
+              <div class="category-select-option" :style="'color: ' + option.option.color + ';'">
                 <div class="icon">
                   <font-awesome-icon :icon="['fas', option.option.icon]" />
                 </div>
@@ -47,32 +36,16 @@
             genratie
           </InfoComponent>
         </p>
-        <Slider
-          v-model="training.people"
-          class="people-display"
-          :step="1"
-          :min="1"
-          :max="30"
-        />
+        <Slider v-model="training.people" class="people-display" :step="1" :min="1" :max="30" />
 
         <p>Lengte training (min): {{ trainingMinutes }}</p>
-        <Slider
-          v-model="trainingMinutes"
-          :step="1"
-          :min="15"
-          :max="120"
-        />
+        <Slider v-model="trainingMinutes" :step="1" :min="15" :max="120" />
         <div class="time-display">
           <p>Warming-up: {{ trainingSplits[0] }} min.</p>
           <p>Oefeningen: {{ trainingSplits[1] - trainingSplits[0] }} min.</p>
           <p>Partijtje: {{ trainingMinutes - trainingSplits[1] }} min.</p>
         </div>
-        <Slider
-          v-model="trainingSplits"
-          :range="true"
-          :step="1"
-          :max="trainingMinutes"
-        />
+        <Slider v-model="trainingSplits" :range="true" :step="1" :max="trainingMinutes" />
       </div>
     </template>
     <template #footer>
@@ -80,13 +53,10 @@
         <Button @click="generateTraining()">
           <font-awesome-icon :icon="['fas', 'cogs']" />Maak Training
         </Button>
-        <Button
-          severity="warning"
-          @click="resetFeatures()"
-        >
+        <Button severity="warning" @click="resetFeatures()">
           <font-awesome-icon :icon="['fas', 'eraser']" />Reset
         </Button>
-      </div>  
+      </div>
       <div class="actions">
         <Button severity="Success" @click="saveTraining()">
           <font-awesome-icon :icon="['fas', 'floppy-disk']" />Opslaan voor later
@@ -100,27 +70,20 @@
   </Card>
   <Card class="training">
     <template #title>
-      <div class="align-center">Jouw persoonlijke training</div>
+      <div class="align-center">Huidige training</div>
     </template>
     <template #content>
-      <ExerciseCard
-        v-for="(exercise, index) in training.exercises"
-        :key="exercise.id + '_' + index"
-        class="exercise-card"
-        :exercise="exercise"
-      />
-      <p
-        v-if="training.exercises.length == 0"
-        class="empty"
-      >
-        Druk op "Maak Training" om oefeningen willekeurig te kiezen.
+      <ExerciseCard v-for="(exercise, index) in training.exercises" :key="exercise.id + '_' + index"
+        class="exercise-card" :exercise="exercise" />
+      <p v-if="training.exercises.length == 0" class="empty">
+        Druk op "Maak Training" om oefeningen willekeurig toe te voegen.
       </p>
     </template>
   </Card>
 </template>
 
 <script setup lang="ts">
-  import ExerciseCard from '@/components/ExerciseComponent.vue'
+import ExerciseCard from '@/components/ExerciseComponent.vue'
 import InfoComponent from '@/components/InfoComponent.vue'
 import Category from '@/models/Category'
 import Exercise from '@/models/Exercise'
@@ -130,204 +93,211 @@ import Card from 'primevue/card'
 import ConfirmDialog from 'primevue/confirmdialog'
 import MultiSelect from 'primevue/multiselect'
 import Slider from 'primevue/slider'
-import { useConfirm } from "primevue/useconfirm"
+import { useConfirm } from 'primevue/useconfirm'
 import { ref, watch } from 'vue'
-import { useStore } from 'vuex'
+import { globalStore } from '@/store/GlobalStore'
+const store = globalStore()
+const confirm = useConfirm()
 
-  const store = useStore()
-  const confirm = useConfirm();
+const defaultCategories = ['shoot', 'run', 'vs', 'fun'].map((id: string) =>
+  store.getCategoryById(id),
+)
+const defaultNormalExercises = store.exercises.filter((e: Exercise) =>
+  e.categories.some((c: Category) =>
+    defaultCategories.map((x) => x != undefined && x.id).includes(c.id),
+  ),
+)
 
-  const defaultCategories = ['shoot', 'run', 'vs', 'fun'].map((id: string) => store.getters.getCategoryById(id))
-  const defaultNormalExercises = store.state.exercises.filter((e: Exercise) => 
-    e.categories.some((c: Category) => defaultCategories.map(x => x.id).includes(c.id))
-  )
-  
-  let training = ref({} as Training)
-  training.value.date = new Date()
-  training.value.people = 12
-  training.value.exercises = [] as Exercise[]
+let training = ref({} as Training)
+training.value.date = new Date()
+training.value.people = 12
+training.value.exercises = [] as Exercise[]
 
-  let selectedCategories = ref([] as Category[])
-  let trainingMinutes = ref(60)
-  let trainingSplits = ref([10, 40])  
+let selectedCategories = ref([] as Category[])
+let trainingMinutes = ref(60)
+let trainingSplits = ref([10, 40])
 
-  watch(trainingMinutes, (newMinutes: number) => {
-    if (trainingSplits.value[1] > newMinutes) {
-      trainingSplits.value[1] = newMinutes
-      if (trainingSplits.value[0] >= trainingSplits.value[1]) {
-        trainingSplits.value[0] = trainingSplits.value[1] - 5
-      }
+watch(trainingMinutes, (newMinutes: number) => {
+  if (trainingSplits.value[1] > newMinutes) {
+    trainingSplits.value[1] = newMinutes
+    if (trainingSplits.value[0] >= trainingSplits.value[1]) {
+      trainingSplits.value[0] = trainingSplits.value[1] - 5
     }
+  }
+})
+
+// check if a training has been saved before and load it
+loadTraining()
+
+function saveTraining() {
+  localStorage.setItem('training', JSON.stringify(training.value))
+}
+
+function loadTraining() {
+  const trainingString = localStorage.getItem('training')
+  if (trainingString != null) {
+    training.value = JSON.parse(trainingString)
+  }
+}
+
+function deleteTraining() {
+  confirm.require({
+    message: 'Weet je zeker dat je de opgeslagen training wilt verwijderen?',
+    header: 'Bevestiging',
+    accept: () => localStorage.removeItem('training'),
   })
+}
 
-  // check if a training has been saved before and load it
-  loadTraining();
+function generateTraining() {
+  const exercises = [] as Exercise[]
+  const warmUpMinutes = trainingSplits.value[0]
+  const exerciseMinutes = trainingSplits.value[1] - trainingSplits.value[0]
+  const vsExerciseMinutes = trainingMinutes.value - trainingSplits.value[1]
+  exercises.push(generateWarmUp(warmUpMinutes))
+  exercises.push(
+    ...generateNormalExercise(selectedCategories.value, exerciseMinutes),
+  )
+  exercises.push(generateVSExercise(vsExerciseMinutes))
+  training.value.exercises = exercises
+}
 
-  function saveTraining() {
-    localStorage.setItem("training", JSON.stringify(training.value));
-  }
+function generateWarmUp(minutes: number): Exercise {
+  let generatedWarmup = randomExerciseByCategories(['warm-up'])
+  generatedWarmup.maxTime = minutes
+  return generatedWarmup
+}
 
-  function loadTraining() {
-    const trainingString = localStorage.getItem("training")
-    if(trainingString != null) {
-      training.value = JSON.parse(trainingString)
-    }
-  }
-
-  function deleteTraining() {
-    confirm.require({
-        message: 'Weet je zeker dat je de opgeslagen training wilt verwijderen?',
-        header: 'Bevestiging',
-        accept: () => localStorage.removeItem("training")
-    });
-  }
-
-  function generateTraining() {
-    const exercises = [] as Exercise[]
-    const warmUpMinutes = trainingSplits.value[0]
-    const exerciseMinutes = trainingSplits.value[1] - trainingSplits.value[0]
-    const vsExerciseMinutes = trainingMinutes.value - trainingSplits.value[1]
-    exercises.push(generateWarmUp(warmUpMinutes))
-    exercises.push(
-      ...generateNormalExercise(selectedCategories.value, exerciseMinutes),
+function generateNormalExercise(
+  categories: Category[],
+  minutes: number,
+): Exercise[] {
+  let totalTime = 0
+  let exercises = [] as Exercise[]
+  while (totalTime <= minutes) {
+    const exercise = randomExerciseByCategories(
+      categories.map((category) => category.id),
     )
-    exercises.push(generateVSExercise(vsExerciseMinutes))
-    training.value.exercises = exercises
+    exercises.push(exercise)
+    totalTime += exercise.maxTime
+  }
+  return exercises
+}
+
+function generateVSExercise(minutes: number): Exercise {
+  let vsExercise = randomExerciseByCategories(['vs-all'])
+  vsExercise.maxTime = minutes
+  return vsExercise
+}
+
+function randomExerciseByCategories(categories: string[]): Exercise {
+  // filter only by one of the specified categories in the list
+  let filteredExercises = store.exercises.filter((ex: Exercise) =>
+    ex.categories.some((c: Category) => categories.includes(c.id)),
+  )
+  // use default selection when nothing is found
+  if (filteredExercises.length == 0) {
+    filteredExercises = defaultNormalExercises
   }
 
-  function generateWarmUp(minutes: number): Exercise {
-    let generatedWarmup = randomExerciseByCategories(['warm-up'])
-    generatedWarmup.maxTime = minutes
-    return generatedWarmup
+  let generatedExercise =
+    filteredExercises[randomRange(0, filteredExercises.length)]
+  // keep picking random exercises but take no duplicates
+  while (generatedExercise in training.value.exercises) {
+    generatedExercise =
+      filteredExercises[randomRange(0, filteredExercises.length)]
   }
+  return generatedExercise
+}
 
-  function generateNormalExercise(categories: Category[], minutes: number): Exercise[] {
-    let totalTime = 0
-    let exercises = [] as Exercise[]
-    while (totalTime <= minutes) {
-      const exercise = randomExerciseByCategories(
-        categories.map((category) => category.id),
-      )
-      exercises.push(exercise)
-      totalTime += exercise.maxTime
-    }
-    return exercises
-  }
+function randomRange(min: number, max: number): number {
+  return Math.floor(random() * (max - min) + min)
+}
 
-  function generateVSExercise(minutes: number): Exercise {
-    let vsExercise = randomExerciseByCategories(['vs-all'])
-    vsExercise.maxTime = minutes
-    return vsExercise
-  }
+function random(): number {
+  return window.crypto.getRandomValues(new Uint32Array(1))[0] / 2 ** 32
+}
 
-  function randomExerciseByCategories(categories: string[]): Exercise {
-    // filter only by one of the specified categories in the list
-    let filteredExercises = store.state.exercises.filter((ex: Exercise) =>
-      ex.categories.some((c: Category) => categories.includes(c.id))
-    )
-    // use default selection when nothing is found
-    if (filteredExercises.length == 0) {
-      filteredExercises = defaultNormalExercises
-    }
-  
-    let generatedExercise = filteredExercises[randomRange(0, filteredExercises.length)]
-    // keep picking random exercises but take no duplicates
-    while (generatedExercise in training.value.exercises) {
-      generatedExercise =
-        filteredExercises[randomRange(0, filteredExercises.length)]
-    }
-    return generatedExercise
-  }
-
-  function randomRange(min: number, max: number): number {
-    return Math.floor(random() * (max - min) + min)
-  }
-
-  function random(): number {
-    return window.crypto.getRandomValues(new Uint32Array(1))[0] / 2 ** 32
-  }
-
-  function resetFeatures() {
-    selectedCategories.value = []
-    trainingMinutes.value = 60
-    trainingSplits.value = [10, 40]
-    training.value.exercises = []
-    training.value.people = 12
-  }
+function resetFeatures() {
+  selectedCategories.value = []
+  trainingMinutes.value = 60
+  trainingSplits.value = [10, 40]
+  training.value.exercises = []
+  training.value.people = 12
+}
 </script>
 
 <style scoped lang="scss">
-  .training-generator {
-    margin-top: 25px;
-    color: #1c2221;
+.training-generator {
+  margin-top: 25px;
+  color: #1c2221;
 
-    .time-display {
-      display: flex;
-      justify-content: space-around;
-
-      p {
-        flex: 0 0 25%;
-      }
-    }
-
-    .p-slider-range {
-      background: #cc0c0c;
-    }
-
-    .help {
-      cursor: pointer;
-    }
-
-    .category-select {
-      width: 100%;
-    }
-
-    .actions {
-      margin: 0 0 10px 0;
-      display: flex;
-      gap: 20px;
-
-      button {
-        flex-grow: 1;
-        border-radius: 5px;
-        justify-content: center;
-      }
-
-      svg {
-        margin-right: 10px;
-      }
-    }
-  }
-
-  .training {
-    margin-top: 25px;
-    border-radius: 25px;
-    border: none;
-
-    .empty {
-      text-align: center;
-      color: lighten(#000, 75%);
-    }
-  }
-
-  .category-select-option {
-    width: 100%;
+  .time-display {
     display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-
-    div {
-      flex: 0 0 30px;
-    }
+    justify-content: space-around;
 
     p {
-      margin: 0;
+      flex: 0 0 25%;
     }
   }
 
-  .exercise-card {
-    border-radius: 0;
-    border: none;
-    margin-top: 10px;
+  .p-slider-range {
+    background: #cc0c0c;
   }
-</style>
+
+  .help {
+    cursor: pointer;
+  }
+
+  .category-select {
+    width: 100%;
+  }
+
+  .actions {
+    margin: 0 0 10px 0;
+    display: flex;
+    gap: 20px;
+
+    button {
+      flex-grow: 1;
+      border-radius: 5px;
+      justify-content: center;
+    }
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+}
+
+.training {
+  margin-top: 25px;
+  border-radius: 25px;
+  border: none;
+
+  .empty {
+    text-align: center;
+    color: lighten(#000, 75%);
+  }
+}
+
+.category-select-option {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  div {
+    flex: 0 0 30px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.exercise-card {
+  border-radius: 0;
+  border: none;
+  margin-top: 10px;
+}
+</style>@/store/GlobalStore

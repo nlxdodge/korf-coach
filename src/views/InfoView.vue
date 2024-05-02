@@ -1,5 +1,5 @@
 <template>
-  <div class="info">
+  <div class="info-view">
     <h1>Korf Coach</h1>
     <div class="flex-center">
       <Card>

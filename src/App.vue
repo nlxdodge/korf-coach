@@ -6,11 +6,11 @@
 </template>
 
 <script setup lang="ts">
-  import { onBeforeMount } from 'vue';
-import { useStore } from 'vuex';
-import NavigationComponent from './components/NavigationComponent.vue';
+  import { onBeforeMount } from 'vue'
+  import { globalStore } from '@/store/GlobalStore'
+  import NavigationComponent from './components/NavigationComponent.vue'
 
-  const store = useStore()
+  const store = globalStore()
 
   const navItems = [
     {
@@ -31,14 +31,14 @@ import NavigationComponent from './components/NavigationComponent.vue';
   ]
 
   onBeforeMount(() => {
-    store.dispatch('loadData')
+    store.loadData()
     console.log(
       'Loaded data from json file, categories:',
-      store.state.categories.length,
+      store.categories.length,
       'exercises:',
-      store.state.exercises.length,
+      store.exercises.length,
       'subExercises:',
-      store.state.subExercises.length,
+      store.subExercises.length,
     )
   })
 </script>

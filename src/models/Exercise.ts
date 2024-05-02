@@ -7,8 +7,8 @@ export default class Exercise {
     description: string
     maxScore: number
     maxTime: number
-    subExercises: SubExercise[] = [] as SubExercise[]
-    categories: Category[] = [] as Category[]
+    subExercises: SubExercise[] = []
+    categories: Category[] = []
 
     constructor(id: string, name: string, description: string, maxScore: number, maxTime: number, subExercises: SubExercise[], categories: Category[]) {
         this.id = id
