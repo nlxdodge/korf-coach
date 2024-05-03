@@ -1,13 +1,19 @@
 import { defineStore } from 'pinia'
-import State from './State'
 import Category from '@/models/Category'
 import Exercise from '@/models/Exercise'
 import SubExercise from '@/models/SubExercise'
 import data from './data.json'
+import type State from '@/models/State'
+import type Training from '@/models/Training'
 
 export const globalStore = defineStore('GlobalStore', {
     state: () => {
-        return new State()
+        return {
+            categories: [] as Category[],
+            exercises: [] as Exercise[],
+            subExercises: [] as SubExercise[],
+            trainings: [] as Training[]
+        } as State
     },
     getters: {
         getCategoryById: (state) => (id: string): Category | undefined => {
@@ -27,7 +33,7 @@ export const globalStore = defineStore('GlobalStore', {
                 this.subExercises.map(subExercise => this.getSubExcerCiseById(subExercise.id)).filter((subExercise): subExercise is SubExercise => subExercise !== undefined),
                 this.categories.map(category => this.getCategoryById(category.id)).filter((category): category is Category => category !== undefined)
             ))
-            this.subExercises = data.subExercises.map(x => new SubExercise(x.id, x.name, x.description, x.maxScore, x.maxTime, 
+            this.subExercises = data.subExercises.map(x => new SubExercise(x.id, x.name, x.description, x.maxScore, x.maxTime,
                 this.categories.map(category => this.getCategoryById(category.id)).filter((category): category is Category => category !== undefined)))
         }
     }
