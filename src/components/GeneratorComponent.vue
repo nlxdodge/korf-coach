@@ -15,7 +15,7 @@
       <div class="p-d-flex">
         <span class="p-float-label">
           <MultiSelect id="category-select" v-model="selectedCategories" name="category-select" class="category-select"
-            :options="store.state.categories" option-label="name" scroll-height="250px" display="chip"
+            :options="store.categories" option-label="name" scroll-height="250px" display="chip"
             :show-toggle-all="false">
             <template #option="option">
               <div class="category-select-option" :style="'color: ' + option.option.color + ';'">
@@ -53,17 +53,10 @@
         <Button @click="generateTraining()">
           <font-awesome-icon :icon="['fas', 'cogs']" />Maak Training
         </Button>
-        <Button severity="warning" @click="resetFeatures()">
-          <font-awesome-icon :icon="['fas', 'eraser']" />Reset
-        </Button>
       </div>
       <div class="actions">
-        <Button severity="Success" @click="saveTraining()">
+        <Button severity="Success" @click="store.saveData()">
           <font-awesome-icon :icon="['fas', 'floppy-disk']" />Opslaan voor later
-        </Button>
-        <ConfirmDialog />
-        <Button severity="danger" @click="deleteTraining()">
-          <font-awesome-icon :icon="['fas', 'trash']" />Verwijder training
         </Button>
       </div>
     </template>
@@ -90,12 +83,12 @@ import Exercise from '@/models/Exercise'
 import Training from '@/models/Training'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
-import ConfirmDialog from 'primevue/confirmdialog'
 import MultiSelect from 'primevue/multiselect'
 import Slider from 'primevue/slider'
 import { useConfirm } from 'primevue/useconfirm'
 import { ref, watch } from 'vue'
 import { globalStore } from '@/store/GlobalStore'
+
 const store = globalStore()
 const confirm = useConfirm()
 
@@ -112,6 +105,9 @@ let training = ref({} as Training)
 training.value.date = new Date()
 training.value.people = 12
 training.value.exercises = [] as Exercise[]
+if (store.training != undefined) {
+  Object.assign(training.value, store.training)
+}
 
 let selectedCategories = ref([] as Category[])
 let trainingMinutes = ref(60)
@@ -125,28 +121,6 @@ watch(trainingMinutes, (newMinutes: number) => {
     }
   }
 })
-
-// check if a training has been saved before and load it
-loadTraining()
-
-function saveTraining() {
-  localStorage.setItem('training', JSON.stringify(training.value))
-}
-
-function loadTraining() {
-  const trainingString = localStorage.getItem('training')
-  if (trainingString != null) {
-    training.value = JSON.parse(trainingString)
-  }
-}
-
-function deleteTraining() {
-  confirm.require({
-    message: 'Weet je zeker dat je de opgeslagen training wilt verwijderen?',
-    header: 'Bevestiging',
-    accept: () => localStorage.removeItem('training'),
-  })
-}
 
 function generateTraining() {
   const exercises = [] as Exercise[]
@@ -191,20 +165,18 @@ function generateVSExercise(minutes: number): Exercise {
 
 function randomExerciseByCategories(categories: string[]): Exercise {
   // filter only by one of the specified categories in the list
-  let filteredExercises = store.exercises.filter((ex: Exercise) =>
-    ex.categories.some((c: Category) => categories.includes(c.id)),
+  let filteredExercises = store.exercises.filter((exercise: Exercise) =>
+    exercise.categories.some((c: Category) => categories.includes(c.id)),
   )
   // use default selection when nothing is found
   if (filteredExercises.length == 0) {
     filteredExercises = defaultNormalExercises
   }
 
-  let generatedExercise =
-    filteredExercises[randomRange(0, filteredExercises.length)]
+  let generatedExercise = filteredExercises[randomRange(0, filteredExercises.length)]
   // keep picking random exercises but take no duplicates
-  while (generatedExercise in training.value.exercises) {
-    generatedExercise =
-      filteredExercises[randomRange(0, filteredExercises.length)]
+  while (training.value.exercises.includes(generatedExercise)) {
+    generatedExercise = filteredExercises[randomRange(0, filteredExercises.length)]
   }
   return generatedExercise
 }
@@ -215,14 +187,6 @@ function randomRange(min: number, max: number): number {
 
 function random(): number {
   return window.crypto.getRandomValues(new Uint32Array(1))[0] / 2 ** 32
-}
-
-function resetFeatures() {
-  selectedCategories.value = []
-  trainingMinutes.value = 60
-  trainingSplits.value = [10, 40]
-  training.value.exercises = []
-  training.value.people = 12
 }
 </script>
 
@@ -259,7 +223,7 @@ function resetFeatures() {
 
     button {
       flex-grow: 1;
-      border-radius: 5px;
+      border-radius: $border-radius;
       justify-content: center;
     }
 
@@ -271,7 +235,7 @@ function resetFeatures() {
 
 .training {
   margin-top: 25px;
-  border-radius: 25px;
+  border-radius: $border-radius;
   border: none;
 
   .empty {
@@ -296,7 +260,7 @@ function resetFeatures() {
 }
 
 .exercise-card {
-  border-radius: 0;
+  border-radius: $border-radius;
   border: none;
   margin-top: 10px;
 }

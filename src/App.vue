@@ -6,108 +6,121 @@
 </template>
 
 <script setup lang="ts">
-  import { onBeforeMount } from 'vue'
-  import { globalStore } from '@/store/GlobalStore'
-  import NavigationComponent from './components/NavigationComponent.vue'
+import { onBeforeMount } from 'vue'
+import { globalStore } from '@/store/GlobalStore'
+import NavigationComponent from './components/NavigationComponent.vue'
 
-  const store = globalStore()
+const store = globalStore()
 
-  const navItems = [
-    {
-      label: 'Maak Training',
-      icon: 'running',
-      url: '/',
-    },
-    {
-      label: 'Oefeningen',
-      icon: 'list',
-      url: '/exercises',
-    },
-    {
-      label: 'Info',
-      icon: 'question-circle',
-      url: '/info',
-    },
-  ]
+const navItems = [
+  {
+    label: 'Maak Training',
+    icon: 'running',
+    url: '/',
+  },
+  {
+    label: 'Oefeningen',
+    icon: 'list',
+    url: '/exercises',
+  },
+  {
+    label: 'Info',
+    icon: 'question-circle',
+    url: '/info',
+  },
+]
 
-  onBeforeMount(() => {
-    store.loadData()
-    console.log(
-      'Loaded data from json file, categories:',
-      store.categories.length,
-      'exercises:',
-      store.exercises.length,
-      'subExercises:',
-      store.subExercises.length,
-    )
-  })
+onBeforeMount(() => {
+  store.loadData()
+  console.log(
+    'Loaded data from json file, categories:',
+    store.categories.length,
+    'exercises:',
+    store.exercises.length,
+    'subExercises:',
+    store.subExercises.length,
+  )
+})
 </script>
 
 <style lang="scss">
-  html {
-    background-color: $primary-color;
-    width: 100%;
-    height: 100%;
-  }
+html {
+  background-color: $primary-color;
+  width: 100%;
+  height: 100%;
+}
 
-  body {
-    margin-left: 15px;
-    margin-right: 15px;
-    padding-bottom: 50px;
-  }
+body {
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-bottom: 50px;
+}
 
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .nav-hamburger {
-    color: #fff;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 2.25rem;
-    -webkit-filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.5));
-    filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.5));
-  }
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
 
-  nav {
-    display: flex;
-    flex-direction: column;
+.nav-hamburger {
+  color: #fff;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 2.25rem;
+  -webkit-filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.5));
+}
 
-    p {
-      text-align: center;
-      color: $primary-color;
-      font-weight: bold;
-      font-size: 1.25rem;
-      margin: 10px 0;
-    }
+nav {
+  display: flex;
+  flex-direction: column;
 
-    a {
-      text-decoration-line: none;
-      color: $primary-color;
-      font-size: 1.25rem;
-      padding: 10px;
-      border-bottom: 2px solid $primary-color;
-
-      svg {
-        width: 40px;
-      }
-    }
-  }
-
-  .p-card {
-    border-radius: 25px;
-    filter: drop-shadow(50px 50px 50px rgba(28, 34, 33, 0.15));
-    padding: 30px 20px 30px;
-
-    .p-card-body {
-      padding: 0;
-    }
-  }
-
-  .align-center {
+  p {
     text-align: center;
+    color: $primary-color;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin: 10px 0;
   }
+
+  a {
+    text-decoration-line: none;
+    color: $primary-color;
+    font-size: 1.25rem;
+    padding: 10px;
+    border-bottom: 2px solid $primary-color;
+
+    svg {
+      width: 40px;
+    }
+  }
+}
+
+.p-card {
+  border-radius: $border-radius;
+  filter: drop-shadow(50px 50px 50px rgba(28, 34, 33, 0.15));
+  padding: 30px 20px 30px;
+
+  .p-card-body {
+    padding: 0;
+  }
+
+  .p-card-subtitle {
+    margin-bottom: 0;
+  }
+}
+
+.p-button {
+  border-radius: $border-radius;
+}
+
+.align-center {
+  text-align: center;
+}
 </style>

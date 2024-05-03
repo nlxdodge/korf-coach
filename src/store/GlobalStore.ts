@@ -12,6 +12,7 @@ export const globalStore = defineStore('GlobalStore', {
             categories: [] as Category[],
             exercises: [] as Exercise[],
             subExercises: [] as SubExercise[],
+            training: {} as Training,
             trainings: [] as Training[]
         } as State
     },
@@ -29,12 +30,25 @@ export const globalStore = defineStore('GlobalStore', {
     actions: {
         loadData() {
             this.categories = data.categories
-            this.exercises = data.exercises.map(x => new Exercise(x.id, x.name, x.description, x.maxScore, x.maxTime,
-                this.subExercises.map(subExercise => this.getSubExcerCiseById(subExercise.id)).filter((subExercise): subExercise is SubExercise => subExercise !== undefined),
-                this.categories.map(category => this.getCategoryById(category.id)).filter((category): category is Category => category !== undefined)
-            ))
             this.subExercises = data.subExercises.map(x => new SubExercise(x.id, x.name, x.description, x.maxScore, x.maxTime,
-                this.categories.map(category => this.getCategoryById(category.id)).filter((category): category is Category => category !== undefined)))
+                x.categories.map(category => this.getCategoryById(category)).filter((category): category is Category => category !== undefined)))
+            this.exercises = data.exercises.map(x => new Exercise(x.id, x.name, x.description, x.maxScore, x.maxTime,
+                x.subExercises.map(subExercise => this.getSubExcerCiseById(subExercise)).filter((subExercise): subExercise is SubExercise => subExercise !== undefined),
+                x.categories.map(category => this.getCategoryById(category)).filter((category): category is Category => category !== undefined)
+            ))
+
+            const training = localStorage.getItem("training")
+            const trainings = localStorage.getItem("trainings")
+            if (training != undefined) {
+                this.training = JSON.parse(training)
+            }
+            if (trainings != undefined) {
+                this.trainings = JSON.parse(trainings)
+            }
+        },
+        saveData() {
+            localStorage.setItem('training', JSON.stringify(this.training))
+            localStorage.setItem('trainings', JSON.stringify(this.trainings))
         }
     }
 })

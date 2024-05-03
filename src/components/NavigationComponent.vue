@@ -61,10 +61,11 @@ import { useRouter } from 'vue-router';
     height: 53px;
     font-size: 32px;
     color: $primary-color;
-    background-color: $secondary-color;
+    background-color: white;
+    box-shadow: 0px 0px 4px 1px grey;
     padding: 10px;
     text-align: center;
-    border-radius: 3px;
+    border-radius: $border-radius;
 
     &:hover {
       cursor: pointer;
@@ -79,13 +80,15 @@ import { useRouter } from 'vue-router';
     bottom: 25px;
     display: grid;
     justify-items: stretch;
+    background-color: white;
     grid-template-rows: repeat(3, 75px);
+    box-shadow: 0px 0px 4px 1px grey;
     grid-template-columns: 75px;
+    border-radius: $border-radius;
 
     .navigation-item {
       font-size: 2rem;
       color: $primary-color;
-      background-color: white;
       padding: 10px;
       text-align: center;
 

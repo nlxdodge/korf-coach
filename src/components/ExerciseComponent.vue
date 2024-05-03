@@ -47,8 +47,10 @@ import Category from '../models/Category';
   .exercise-card {
     .categories {
       display: flex;
+      flex-wrap: wrap;
       .category {
-        margin-right: 15px;
+        text-align: center;
+        padding: 5px;
       }
     }
   }

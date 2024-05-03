@@ -7,5 +7,6 @@ export default interface State {
     categories: Category[]
     exercises: Exercise[]
     subExercises: SubExercise[]
+    training: Training
     trainings: Training[]
 }
