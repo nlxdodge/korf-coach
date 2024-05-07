@@ -1,6 +1,15 @@
 <template>
   <div>
     <NavigationComponent :items="navItems" />
+    <ScrollUp />
+    <div class="flex-center">
+      <img
+        class="korf-coach-logo"
+        src="../public/img/icons/android-chrome-192x192.png"
+        alt="Korf Coach logo"
+      />
+      <h1>Korf Coach</h1>
+    </div>
     <router-view />
   </div>
 </template>
@@ -9,6 +18,7 @@
 import { globalStore } from '@/store/GlobalStore';
 import { onBeforeMount } from 'vue';
 import NavigationComponent from './components/NavigationComponent.vue';
+import ScrollUp from './components/ScrollUp.vue';
 
 const store = globalStore()
 
@@ -16,23 +26,23 @@ const navItems = [
   {
     label: 'Maak Training',
     icon: 'running',
-    url: '/',
+    url: '/'
   },
   {
     label: 'Traingen',
     icon: 'list',
-    url: '/trainings',
+    url: '/trainings'
   },
   {
     label: 'Oefeningen',
     icon: 'dumbbell',
-    url: '/exercises',
+    url: '/exercises'
   },
   {
     label: 'Info',
     icon: 'question-circle',
-    url: '/info',
-  },
+    url: '/info'
+  }
 ]
 
 onBeforeMount(() => {
@@ -43,7 +53,7 @@ onBeforeMount(() => {
     'exercises:',
     store.exercises.length,
     'subExercises:',
-    store.subExercises.length,
+    store.subExercises.length
   )
 })
 </script>
@@ -67,9 +77,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  color: #fff;
+}
+
+.korf-coach-logo {
+  max-width: 50px;
+  height: 100%;
+}
+
 .flex-center {
   display: flex;
+  align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .nav-hamburger {
