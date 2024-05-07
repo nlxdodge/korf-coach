@@ -5,7 +5,7 @@
     <div class="flex-center">
       <img
         class="korf-coach-logo"
-        src="../public/img/icons/android-chrome-192x192.png"
+        src="../img/icons/android-chrome-192x192.png"
         alt="Korf Coach logo"
       />
       <h1>Korf Coach</h1>
