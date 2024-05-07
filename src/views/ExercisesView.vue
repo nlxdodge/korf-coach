@@ -7,21 +7,31 @@
         </template>
         <template #content>
           In dit overzicht zijn alle
-          {{ store.exercises.length }} oefeningen nog een keer terug te
-          lezen. Heb jij ook een idee voor een oefening? Neem dan contact op bij
-          Info in het menu.
+          {{ store.exercises.length }} oefeningen nog een keer terug te lezen. Heb jij ook een idee
+          voor een oefening? Neem dan contact op bij Info in het menu.
         </template>
         <template #footer>
-          <MultiSelect v-model="selectedCategories" class="category-select" :options="store.categories"
-            option-label="name" placeholder="Filter op Categorie" scroll-height="250px" display="chip"
-            :show-toggle-all="false" />
+          <MultiSelect
+            v-model="selectedCategories"
+            class="category-select"
+            :options="store.categories"
+            option-label="name"
+            placeholder="Filter op Categorie"
+            scroll-height="250px"
+            display="chip"
+            :show-toggle-all="false"
+          />
         </template>
       </Card>
     </div>
 
     <div class="exercises-grid">
-      <ExerciseCard v-for="exercise in filterdExercises" :key="exercise.name" class="exercise-card"
-        :exercise="exercise" />
+      <ExerciseCard
+        v-for="exercise in filterdExercises"
+        :key="exercise.name"
+        class="exercise-card"
+        :exercise="exercise"
+      />
     </div>
   </div>
 </template>
@@ -37,9 +47,7 @@ import { globalStore } from '@/store/GlobalStore'
 const store = globalStore()
 let selectedCategories = ref([] as Category[])
 let filterdExercises = computed(() => {
-  return store.exercises.filter((exercise: Exercise) =>
-    hasCategory(exercise),
-  )
+  return store.exercises.filter((exercise: Exercise) => hasCategory(exercise))
 })
 
 function hasCategory(exercise: Exercise) {
@@ -54,11 +62,6 @@ function hasCategory(exercise: Exercise) {
 
 <style scoped lang="scss">
 .exercises {
-  h1 {
-    text-align: center;
-    color: $secondary-color;
-  }
-
   .exercise-filter {
     display: flex;
     justify-content: center;
@@ -70,7 +73,6 @@ function hasCategory(exercise: Exercise) {
   }
 
   .category-select {
-    
     width: 100%;
     margin-bottom: 20px;
   }
