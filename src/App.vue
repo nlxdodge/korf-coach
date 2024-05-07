@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount } from 'vue'
-import { globalStore } from '@/store/GlobalStore'
-import NavigationComponent from './components/NavigationComponent.vue'
+import { globalStore } from '@/store/GlobalStore';
+import { onBeforeMount } from 'vue';
+import NavigationComponent from './components/NavigationComponent.vue';
 
 const store = globalStore()
 
@@ -19,8 +19,13 @@ const navItems = [
     url: '/',
   },
   {
-    label: 'Oefeningen',
+    label: 'Traingen',
     icon: 'list',
+    url: '/trainings',
+  },
+  {
+    label: 'Oefeningen',
+    icon: 'dumbbell',
     url: '/exercises',
   },
   {

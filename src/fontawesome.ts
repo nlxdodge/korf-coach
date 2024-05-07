@@ -1,6 +1,6 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
-  faBars, faCogs, faCrosshairs, faEnvelope, faList, faPeopleArrows, faQuestionCircle, faRunning, faTrash, faUsers, faWalking, faSmile, faXmark, faTint, faFloppyDisk, faEraser
+  faBars, faCogs, faCrosshairs, faEnvelope, faList, faPeopleArrows, faQuestionCircle, faRunning, faTrash, faUsers, faWalking, faSmile, faXmark, faTint, faFloppyDisk, faEraser, faDumbbell
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -25,4 +25,5 @@ library.add(
   faTint,
   faFloppyDisk,
   faEraser,
+  faDumbbell,
 )
