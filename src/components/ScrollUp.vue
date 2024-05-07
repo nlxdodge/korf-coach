@@ -8,7 +8,7 @@
 import { ref } from 'vue';
 
 const pixelsDownToScroll = 250
-const showScrollUp = ref(true)
+const showScrollUp = ref(false)
 
 window.onscroll = () => {
   showScrollUp.value =
