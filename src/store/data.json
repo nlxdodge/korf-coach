@@ -422,7 +422,8 @@
             "id": "pizza_bezorgen",
             "categories": [
                 "vs",
-                "shoot"
+                "shoot",
+                "fun"
             ],
             "name": "Pizza bezorgen",
             "description": "Ieder korf heeft 3 pionnen achter de paal, bij scoren een pion wegbrengen, wanneer alle pionnen weg en de laatste speler is terug bij de paal heeft die paal gewonnen",

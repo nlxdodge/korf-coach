@@ -53,7 +53,11 @@ onBeforeMount(() => {
     'exercises:',
     store.exercises.length,
     'subExercises:',
-    store.subExercises.length
+    store.subExercises.length,
+    'previous training with exercises',
+    store.training.exercises.length,
+    'trainings',
+    store.trainings.length
   )
 })
 </script>
