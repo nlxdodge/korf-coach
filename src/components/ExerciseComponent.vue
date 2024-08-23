@@ -24,7 +24,6 @@
 
 <script setup lang="ts">
   import Card from 'primevue/card';
-import { defineProps } from 'vue';
 import { useStore } from 'vuex';
 import Category from '../models/Category';
 
