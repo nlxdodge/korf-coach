@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
   import Card from 'primevue/card';
-import { globalStore } from '@/store/GlobalStore';
+import { useStore } from 'vuex';
 import Category from '../models/Category';
 
   const store = globalStore()
