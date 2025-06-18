@@ -39,9 +39,9 @@ export const globalStore = defineStore('GlobalStore', {
     actions: {
         loadData() {
             this.categories = data.categories
-            this.subExercises = data.subExercises.map(x => new SubExercise(x.id, x.name, x.description, x.maxScore, x.maxTime,
-                x.categories.map(category => this.getCategoryById(category)).filter((category): category is Category => category !== undefined)))
-            this.exercises = data.exercises.map(x => new Exercise(x.id, x.name, x.description, x.maxScore, x.maxTime,
+            this.subExercises = data.subExercises.map(x => new SubExercise(x.id ?? "", x.name ?? "", x.description ?? "", x.maxScore ?? 0, x.maxTime ?? 0,
+                (x.categories ?? []).map(category => this.getCategoryById(category)).filter((category): category is Category => category !== undefined)))
+            this.exercises = data.exercises.map(x => new Exercise(x.id, x.name, x.description, Number(x.maxScore) ?? 0, Number(x.maxTime) ?? 0,
                 x.subExercises.map(subExercise => this.getSubExcerCiseById(subExercise)).filter((subExercise): subExercise is SubExercise => subExercise !== undefined),
                 x.categories.map(category => this.getCategoryById(category)).filter((category): category is Category => category !== undefined)
             ))
@@ -56,7 +56,6 @@ export const globalStore = defineStore('GlobalStore', {
             }
         },
         saveTraining(training: Training) {
-            console.log("saving this now yeah")
             this.training = training
             this.trainings.push(training)
             this.saveData()
