@@ -31,16 +31,16 @@ function scrollUp() {
   width: 50px;
   height: 53px;
   font-size: 32px;
-  color: $primary-color;
+  color: theme.$primary-color;
   background-color: white;
   box-shadow: 0px 0px 4px 1px grey;
   padding: 10px;
   text-align: center;
-  border-radius: $border-radius;
+  border-radius: theme.$border-radius;
 
   &:hover {
     cursor: pointer;
-    color: lighten($primary-color, 25%);
+    color: theme.$primary-color-active;
   }
 }
 </style>

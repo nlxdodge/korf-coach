@@ -79,7 +79,7 @@ if(store.trainings != undefined) {
       flex-grow: 1;
       gap: 10px;
       align-items: center;
-      border-radius: $border-radius;
+      border-radius: theme.$border-radius;
       justify-content: center;
     }
   }

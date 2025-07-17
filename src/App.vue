@@ -64,7 +64,7 @@ onBeforeMount(() => {
 
 <style lang="scss">
 html {
-  background-color: $primary-color;
+  background-color: theme.$primary-color;
   width: 100%;
   height: 100%;
 }
@@ -113,7 +113,7 @@ nav {
 
   p {
     text-align: center;
-    color: $primary-color;
+    color: theme.$primary-color;
     font-weight: bold;
     font-size: 1.25rem;
     margin: 10px 0;
@@ -121,10 +121,10 @@ nav {
 
   a {
     text-decoration-line: none;
-    color: $primary-color;
+    color: theme.$primary-color;
     font-size: 1.25rem;
     padding: 10px;
-    border-bottom: 2px solid $primary-color;
+    border-bottom: 2px solid theme.$primary-color;
 
     svg {
       width: 40px;
@@ -133,7 +133,7 @@ nav {
 }
 
 .p-card {
-  border-radius: $border-radius;
+  border-radius: theme.$border-radius;
   filter: drop-shadow(50px 50px 50px rgba(28, 34, 33, 0.15));
   padding: 30px 20px 30px;
 
@@ -147,7 +147,7 @@ nav {
 }
 
 .p-button {
-  border-radius: $border-radius;
+  border-radius: theme.$border-radius;
 }
 
 .align-center {

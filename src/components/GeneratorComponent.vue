@@ -239,7 +239,7 @@ function random(): number {
 
     button {
       flex-grow: 1;
-      border-radius: $border-radius;
+      border-radius: theme.$border-radius;
       justify-content: center;
     }
 
@@ -251,12 +251,12 @@ function random(): number {
 
 .training {
   margin-top: 25px;
-  border-radius: $border-radius;
+  border-radius: theme.$border-radius;
   border: none;
 
   .empty {
     text-align: center;
-    color: lighten(#000, 75%);
+    color: #bfbfbf
   }
 }
 
@@ -276,7 +276,7 @@ function random(): number {
 }
 
 .exercise-card {
-  border-radius: $border-radius;
+  border-radius: theme.$border-radius;
   border: none;
   margin-top: 10px;
 }

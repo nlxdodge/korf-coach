@@ -37,7 +37,7 @@ import Card from 'primevue/card'
     max-width: 600px;
 
     a {
-      color: $secondary-color;
+      color: theme.$secondary-color;
       text-align: center;
       text-decoration: none;
 
