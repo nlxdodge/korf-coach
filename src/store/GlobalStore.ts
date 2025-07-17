@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
-import Category from '@/models/Category'
-import Exercise from '@/models/Exercise'
-import SubExercise from '@/models/SubExercise'
+import Category from '../models/Category'
+import Exercise from '../models/Exercise'
+import SubExercise from '../models/SubExercise'
 import data from './data.json'
-import type State from '@/models/State'
-import type Training from '@/models/Training'
+import type State from '../models/State'
+import type Training from '../models/Training'
 
 export const globalStore = defineStore('GlobalStore', {
     state: () => {

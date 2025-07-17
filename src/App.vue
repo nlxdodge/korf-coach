@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { globalStore } from '@/store/GlobalStore';
+import { globalStore } from './store/GlobalStore';
 import { onBeforeMount } from 'vue';
 import NavigationComponent from './components/NavigationComponent.vue';
 import ScrollUp from './components/ScrollUp.vue';

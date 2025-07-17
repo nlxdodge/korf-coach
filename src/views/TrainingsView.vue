@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { globalStore } from '@/store/GlobalStore'
+import { globalStore } from '../store/GlobalStore'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import { storeToRefs } from 'pinia'

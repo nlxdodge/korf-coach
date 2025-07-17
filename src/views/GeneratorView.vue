@@ -5,5 +5,5 @@
 </template>
 
 <script setup lang="ts">
-  import Generator from '@/components/GeneratorComponent.vue'
+  import Generator from '../components/GeneratorComponent.vue'
 </script>

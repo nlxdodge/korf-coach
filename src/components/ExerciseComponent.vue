@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { globalStore } from '@/store/GlobalStore';
+import { globalStore } from '../store/GlobalStore';
 import Card from 'primevue/card';
 import Category from '../models/Category';
 
@@ -54,4 +54,4 @@ import Category from '../models/Category';
       }
     }
   }
-</style>@/store/GlobalStore
+</style>

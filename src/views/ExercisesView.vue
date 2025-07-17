@@ -37,13 +37,13 @@
 </template>
 
 <script setup lang="ts">
-import ExerciseCard from '@/components/ExerciseComponent.vue'
-import Category from '@/models/Category'
-import Exercise from '@/models/Exercise'
+import ExerciseCard from '../components/ExerciseComponent.vue'
+import Category from '../models/Category'
+import Exercise from '../models/Exercise'
 import Card from 'primevue/card'
 import MultiSelect from 'primevue/multiselect'
 import { computed, ref } from 'vue'
-import { globalStore } from '@/store/GlobalStore'
+import { globalStore } from '../store/GlobalStore'
 const store = globalStore()
 let selectedCategories = ref([] as Category[])
 let filterdExercises = computed(() => {

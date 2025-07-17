@@ -81,19 +81,19 @@
 </template>
 
 <script setup lang="ts">
-import ExerciseCard from '@/components/ExerciseComponent.vue'
-import InfoComponent from '@/components/InfoComponent.vue'
+import ExerciseCard from '../components/ExerciseComponent.vue'
+import InfoComponent from '../components/InfoComponent.vue'
 import InputText from 'primevue/inputtext'
-import Category from '@/models/Category'
-import Exercise from '@/models/Exercise'
-import Training from '@/models/Training'
+import Category from '../models/Category'
+import Exercise from '../models/Exercise'
+import Training from '../models/Training'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
 import MultiSelect from 'primevue/multiselect'
 import FloatLabel from 'primevue/floatlabel'
 import Slider from 'primevue/slider'
 import { ref, watch } from 'vue'
-import { globalStore } from '@/store/GlobalStore'
+import { globalStore } from '../store/GlobalStore'
 
 const store = globalStore()
 
@@ -281,4 +281,3 @@ function random(): number {
   margin-top: 10px;
 }
 </style>
-@/store/GlobalStore
