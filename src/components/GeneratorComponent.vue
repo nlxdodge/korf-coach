@@ -14,17 +14,9 @@
     <template #content>
       <div class="p-d-flex">
         <span class="p-float-label">
-          <MultiSelect
-            id="category-select"
-            v-model="selectedCategories"
-            name="category-select"
-            class="category-select"
-            :options="store.categories"
-            option-label="name"
-            scroll-height="250px"
-            display="chip"
-            :show-toggle-all="false"
-          >
+          <MultiSelect id="category-select" v-model="selectedCategories" name="category-select" class="category-select"
+            :options="store.categories" option-label="name" scroll-height="250px" display="chip"
+            :show-toggle-all="false">
             <template #option="option">
               <div class="category-select-option" :style="'color: ' + option.option.color + ';'">
                 <div class="icon">
@@ -79,12 +71,8 @@
       <div class="align-center">Huidige training</div>
     </template>
     <template #content>
-      <ExerciseCard
-        v-for="(exercise, index) in training.exercises"
-        :key="exercise.id + '_' + index"
-        class="exercise-card"
-        :exercise="exercise"
-      />
+      <ExerciseCard v-for="(exercise, index) in training.exercises" :key="exercise.id + '_' + index"
+        class="exercise-card" :exercise="exercise" />
       <p v-if="training.exercises.length == 0" class="empty">
         Druk op "Maak Training" om oefeningen willekeurig toe te voegen.
       </p>
@@ -214,6 +202,7 @@ function random(): number {
 .training-generator {
   margin-top: 25px;
   color: #1c2221;
+
   .time-display {
     display: flex;
     justify-content: space-around;
@@ -222,30 +211,38 @@ function random(): number {
       flex: 0 0 25%;
     }
   }
+
   .p-slider-range {
     background: #cc0c0c;
   }
+
   .help {
     cursor: pointer;
   }
+
   .category-select {
     width: 100%;
   }
+
   .input-field {
     margin-top: 35px;
+
     input {
       width: 100%;
     }
   }
+
   .actions {
     margin: 0 0 10px 0;
     display: flex;
     gap: 20px;
+
     button {
       flex-grow: 1;
       border-radius: $border-radius;
       justify-content: center;
     }
+
     svg {
       margin-right: 10px;
     }
@@ -256,6 +253,7 @@ function random(): number {
   margin-top: 25px;
   border-radius: $border-radius;
   border: none;
+
   .empty {
     text-align: center;
     color: lighten(#000, 75%);
@@ -267,9 +265,11 @@ function random(): number {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+
   div {
     flex: 0 0 30px;
   }
+
   p {
     margin: 0;
   }

@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import 'primeicons/primeicons.css'
-import PrimeVue from 'primevue/config'
-import ConfirmationService from 'primevue/confirmationservice'
+import PrimeVue from 'primevue/config';
 import Aura from '@primeuix/themes/aura';
+import ConfirmationService from 'primevue/confirmationservice'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
@@ -14,7 +14,14 @@ createApp(App)
   .use(ConfirmationService)
   .use(router)
   .use(PrimeVue, {
-    theme: Aura
+    theme: {
+      preset: Aura,
+      options: {
+        prefix: 'p',
+        darkModeSelector: 'system',
+        cssLayer: false
+      }
+    }
   })
   .use(createPinia())
   .mount('#app')

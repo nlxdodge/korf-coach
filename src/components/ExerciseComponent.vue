@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-  import Card from 'primevue/card';
-import { useStore } from 'vuex';
+import { globalStore } from '@/store/GlobalStore';
+import Card from 'primevue/card';
 import Category from '../models/Category';
 
   const store = globalStore()
