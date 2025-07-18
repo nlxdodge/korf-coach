@@ -13,9 +13,8 @@ Live Environment: <https://korf-coach.netlify.app/>
 npm install --global corepack@latest
 ```
 
-
 ```bash
-pnpm i
+pnpm install
 ```
 
 ### Run development environment (Hot-reloads) on <http://localhost:3000/>
@@ -35,3 +34,8 @@ pnpm run lint
 ```bash
 pnpm run build
 ```
+
+## TODO
+
+- Clone new Vue project and copy over boilerplate
+- Get Docker image working and setup on my own server
