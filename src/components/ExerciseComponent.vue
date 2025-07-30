@@ -23,11 +23,11 @@
 </template>
 
 <script setup lang="ts">
-  import Card from 'primevue/card';
-import { useStore } from 'vuex';
+import { globalStore } from '../store/GlobalStore';
+import Card from 'primevue/card';
 import Category from '../models/Category';
 
-  const store = useStore()
+  const store = globalStore()
 
   const props = defineProps({
     exercise: {
@@ -36,9 +36,9 @@ import Category from '../models/Category';
     },
   })
 
-  function getCategories() {
+  function getCategories(): Category[] {
     return props.exercise.categories.map((c: Category) => {
-      return store.getters.getCategoryById(c.id)
+      return store.getCategoryById(c.id)
     })
   }
 </script>
@@ -47,8 +47,10 @@ import Category from '../models/Category';
   .exercise-card {
     .categories {
       display: flex;
+      flex-wrap: wrap;
       .category {
-        margin-right: 15px;
+        text-align: center;
+        padding: 5px;
       }
     }
   }

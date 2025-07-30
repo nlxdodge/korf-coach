@@ -60,17 +60,50 @@
     "subExercises": [
         {
             "id": "doorloopbal",
-            "name": "Doorloopballen",
-            "description": "Een reguliere doorloopbal",
-            "maxScore": 30,
+            "name": "Doorloopbal(len)",
+            "description": "Een standaard doorloopbal",
+            "maxScore": 10,
             "maxTime": 5,
             "categories": [
-                "run", "vs"
+                "run", "vs", "shoot"
+            ]
+        },
+        {
+            
+        },
+        {
+            "id": "short-chance",
+            "name": "Korte kans(en)",
+            "description": "Een standaard schot vanaf heel dicht bij de paal 0-2 meter.",
+            "maxScore": 15,
+            "maxTime": 5,
+            "categories": [
+                "vs", "shoot"
+            ]
+        },
+        {
+            "id": "shoot-from-back",
+            "name": "Schot(en) vanaf de achterkant",
+            "description": "Een standaard schot vanaf de achterkant van de paal",
+            "maxScore": 5,
+            "maxTime": 5,
+            "categories": [
+                "vs", "shoot"
+            ]
+        },
+        {
+            "id": "wegtrekbal",
+            "name": "Wegtrekbal(len)",
+            "description": "Wegtrekken achter de paal om vervolgens een korte kans te maken",
+            "maxScore": 5,
+            "maxTime": 4,
+            "categories": [
+                "vs", "shoot"
             ]
         },
         {
             "id": "squads",
-            "name": "Squads",
+            "name": "Squad(s)",
             "description": "",
             "maxScore": 20,
             "maxTime": 3,
@@ -80,7 +113,7 @@
         },
         {
             "id": "planking",
-            "name": "Planken",
+            "name": "Plank(en)",
             "description": "",
             "maxScore": 0,
             "maxTime": 0.5,
@@ -90,7 +123,7 @@
         },
         {
             "id": "frog-jumps",
-            "name": "Kikker Sprongen",
+            "name": "Kikker Sprong(en)",
             "description": "",
             "maxScore": 20,
             "maxTime": 3,
@@ -100,7 +133,7 @@
         },
         {
             "id": "lunges",
-            "name": "Lunges",
+            "name": "Lung(es)",
             "description": "",
             "maxScore": 20,
             "maxTime": 3,
@@ -110,7 +143,7 @@
         },
         {
             "id": "shoulder-taps",
-            "name": "Shoulder Taps",
+            "name": "Shoulder Tap(s)",
             "description": "",
             "maxScore": 20,
             "maxTime": 3,
@@ -120,7 +153,7 @@
         },
         {
             "id": "sit-ups",
-            "name": "Sit-Ups",
+            "name": "Sit-Up(s)",
             "description": "",
             "maxScore": 20,
             "maxTime": 3,
@@ -130,7 +163,7 @@
         },
         {
             "id": "sprinting",
-            "name": "Sprintje Trekken",
+            "name": "Sprintje(s) Trekken",
             "description": "",
             "maxScore": 20,
             "maxTime": 3,
@@ -159,9 +192,9 @@
             ]
         },
         {
-            "id": "crap-walk-while-switching",
+            "id": "crab-walk",
             "name": "Kruis Links",
-            "description": "",
+            "description": "Loop als een crab van links naar rechts, en probeer de benen over elkaar heen te kruizen.",
             "maxScore": 0,
             "maxTime": 1,
             "categories": [
@@ -177,6 +210,16 @@
             "categories": [
                 "warm-up"
             ]
+        },
+        {
+            "id": "crouch-jump",
+            "name": "Bukken en springen",
+            "description": "",
+            "maxScore": 1,
+            "maxTime": 0,
+            "categories": [
+                "run", "warm-up"
+            ]
         }
     ],
     "exercises": [
@@ -190,7 +233,7 @@
             "description": "Het hele team loopt op goed tempo om het veld. Als de trainer 1 roept doen alle spelers een sprong, 2 een kikkerspring, 3 is omdraaien en 4 is een klein sprintje trekken",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["lunges", "frog_jump", "push_up", "squad", "touch-your-knees"]
         },
         {
             "id": "dice-up",
@@ -202,7 +245,7 @@
             "description": "Om het veld zijn 6 punten, iedereen versprijd zich over deze 6 punten. Bij 1 punt ligt een dobbelsteen, het getal wat wordt gegooit is het aantal pionnen waar de opdracht voor gedaan moet worden. Stel er wordt een 3 gegooit met hakken-billen, dan moet iedereen drie pionen opschuiven en de opdracht uitvoeren. Hierna wordt opnieuw gegooit met een nieuwe opdracht.",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": []
+            "subExercises": ["lunges", "frog_jump", "push_up", "squad", "touch-your-knees"]
         },
         {
             "id": "ratten_raven",
@@ -215,7 +258,7 @@
             "description": "Begin met de spelers tegenover elkaar in het midden van het veld. Elke kant krijgt iets toegewezen (ratten of raven) De trainer roept ratten of raven, die persoon moet dan achter dan andere persoon aan rennen. De andere persoon moet dan achter de veilige lijn komen.",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["sprinting"]
         },
         {
             "id": "doorloopbal_normaal",
@@ -226,9 +269,9 @@
             ],
             "name": "Reguliere doorloopballen",
             "description": "Een reguliere doorloopbal nemen, voor repetitie en warming-up oefening",
-            "maxScore": 0,
+            "maxScore": 25,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["doorloopbal"]
         },
         {
             "id": "doorloopbal_scoren_per_persoon",
@@ -239,9 +282,21 @@
             ],
             "name": "Doorloopballen per persoon scoren",
             "description": "Een hoeveelheid doorloopballen scoren, wissel pas als de score is berijkt!",
-            "maxScore": 0,
+            "maxScore": 25,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["doorloopbal"]
+        },
+        {
+            "id": "twister",
+            "categories": [
+                "run",
+                "warm-up"
+            ],
+            "name": "Twister",
+            "description": "Voor twisters moetern er verschillende kleuren dopjes in het veld worden gelegd, de trainer roept een willekeurige kleur, iedereen moet dan naar dat kleur dopje rennen (maximaal 1 per persoon en er is altijd 1 te weinig). De persoon die wel een dopje heeft mag wel één oefening uitvoeren.",
+            "maxScore": "3",
+            "maxTime": "8",
+            "subExercises": ["doorloopbal", "shoot", "shoot-from-back"]
         },
         {
             "id": "actie_reactie",
@@ -252,7 +307,7 @@
             "description": "Speler voor de paal met de bal, en speler (afvang) achter de paal. Speler voor gooit de bal links of rechts achter de paal, de andere speler reageert daarop om de bal te vangen en te schieten.",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["shoot"]
         },
         {
             "id": "plusminschieten",
@@ -263,7 +318,7 @@
             "description": "Als een plus (+) om de paal zijn er 4 punten, begin voor de paal. Scoor je, dan mag je een punt verder. Mis je 3x dan moet je 1 punt terug.",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["shoot", "short-chance"]
         },
         {
             "id": "verdubbelaar",
@@ -274,7 +329,7 @@
             "description": "Schieten van 2, 4 en 6 meter van de paal. 2 en 4 meter is alle twee 1 punt waard, bij de 6 meter verdubbel je de score (20 wordt dan 40)",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["shoot", "shoot-from-back", "short-chance"]
         },
         {
             "id": "loopende_vang",
@@ -286,7 +341,7 @@
             "description": "Twee spelers beginnen 3 á 6 meter voor de paal. Speler 1 schiet de bal en speler twee moet de bal vangen. Als de eerste goal niet zit en de 2e speler vangt de bal, dan mag er een rebound shot worden gelost. Zit deze dan krijg je alsnog een punt. Valt de bal op de grond, dan verlies je een punt.",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["shoot", "shoot-from-back"]
         },
         {
             "id": "wegtrekbal",
@@ -298,7 +353,7 @@
             "description": "De welbegaafde wegtrekbal onder de paal",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["wegtrekbal"]
         },
         {
             "id": "rebound-tastic",
@@ -310,7 +365,7 @@
             "description": "Speler 1 onder de paal met de bal, gooit naar speler 2 en speler 1 trekt weg, ontvangt de bal en schiet. Speler 2 vangt af en de rollen draaien nu om.",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["short-chance"]
         },
         {
             "id": "streepschieten",
@@ -321,7 +376,7 @@
             "description": "Elker speler heeft per stap 3 kansen, beginnende bij 1 meter. Scoort de speler in die 3 kansen? Stap achteruit en opnieuw 3 kansen.",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["shoot", "shoot-from-back", "short-chance"]
         },
         {
             "id": "hoekschieten",
@@ -332,7 +387,7 @@
             "description": "Elke hoek van de paal 1 keer scoren per persoon",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["shoot", "shoot-from-back"]
         },
         {
             "id": "rebounder",
@@ -343,7 +398,7 @@
             "description": "Speler voor met bal en speler in de afvang, speler 1 schiet, speler 2 vangt de bal zonder stuiter en schiet ook. Zitten ze beide dan krijg je 2 punten. Laat je de bal vallen krijg je 0 punten.",
             "maxScore": 0,
             "maxTime": 5,
-            "subExercises": ["frog_jump", "push_up"]
+            "subExercises": ["shoot", "shoot-from-back", "short-chance"]
         },
         {
             "id": "rebound-duel",
@@ -422,7 +477,8 @@
             "id": "pizza_bezorgen",
             "categories": [
                 "vs",
-                "shoot"
+                "shoot",
+                "fun"
             ],
             "name": "Pizza bezorgen",
             "description": "Ieder korf heeft 3 pionnen achter de paal, bij scoren een pion wegbrengen, wanneer alle pionnen weg en de laatste speler is terug bij de paal heeft die paal gewonnen",
@@ -481,9 +537,6 @@
                 "vs",
                 "shoot"
             ],
-            "modifiers": [
-                "ending"
-            ],
             "name": "Korven Dans",
             "description": "Elke paal moet tienen, dan schuif je een paal op. Haal je iemand in door daarna weer 10 te scoren dan moet die paal uit het spel worden gehaald. Speel door tot het laatste team over is.",
             "maxScore": 0,
@@ -527,8 +580,34 @@
             "name": "Ganzenborden",
             "description": "Teams van 2-3 personen, mens erger je niet bord en twee dobbelstenen is benodigd om dit te spelen. Om de twee minuten wordt een nieuwe opdracht gegeven door de tainer, heb je die opdracht gehaald dan mag je de dobbelstenen gooien. Wie als eerste een rondje heeft gedaan wint. Eventueel kunnen ook nog de scores worden bijgehouden per onderdeel om later op te reflecteren.",
             "maxScore": 0,
-            "maxTime": 5,
+            "maxTime": 45,
             "subExercises": ["frog_jump", "push_up"]
+        },
+        {
+            "id": "circuit",
+            "categories": [
+                "vs",
+                "shoot",
+                "run"
+            ],
+            "name": "Circuitschieten",
+            "description": "Teams van 2-3 personen, een 4 of 5 tal van opdrachten die achter elkaar gedaan moet worden.",
+            "maxScore": 0,
+            "maxTime": 10,
+            "subExercises": ["frog_jump", "push_up"]
+        },
+        {
+            "id": "rope-pulling",
+            "categories": [
+                "vs",
+                "shoot",
+                "run"
+            ],
+            "name": "Touwtrekken",
+            "description": "Teams van 2-3 personen, Leg een lijn of grid van pionen. Scoor je? Leg dan de hoepel een pion van je af. Als er geen pionnen meer zijn heeft je team gewonnen.",
+            "maxScore": 3,
+            "maxTime": 10,
+            "subExercises": ["shoot", "doorloopbal", "shoot-from-back", "short-chance"]
         }
     ]
 }
