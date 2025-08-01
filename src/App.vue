@@ -5,7 +5,7 @@
     <div class="flex-center">
       <img
         class="korf-coach-logo"
-        src="../public/img/icons/android-chrome-192x192.png"
+        src="../public/android-chrome-192x192.png"
         alt="Korf Coach logo"
       />
       <h1>Korf Coach</h1>
@@ -70,6 +70,7 @@ html {
 }
 
 body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   margin-left: 15px;
   margin-right: 15px;
   padding-bottom: 50px;

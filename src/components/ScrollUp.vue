@@ -34,7 +34,7 @@ function scrollUp() {
   color: theme.$primary-color;
   background-color: white;
   box-shadow: 0px 0px 4px 1px grey;
-  padding: 10px;
+  padding: 6px;
   text-align: center;
   border-radius: theme.$border-radius;
 
