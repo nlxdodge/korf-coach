@@ -3,11 +3,7 @@
     <NavigationComponent :items="navItems" />
     <ScrollUp />
     <div class="flex-center">
-      <img
-        class="korf-coach-logo"
-        src="../public/android-chrome-192x192.png"
-        alt="Korf Coach logo"
-      />
+      <img class="korf-coach-logo" src="/android-chrome-192x192.png" alt="Korf Coach logo" />
       <h1>Korf Coach</h1>
     </div>
     <router-view />
@@ -15,10 +11,10 @@
 </template>
 
 <script setup lang="ts">
-import { globalStore } from './store/GlobalStore';
-import { onBeforeMount } from 'vue';
-import NavigationComponent from './components/NavigationComponent.vue';
-import ScrollUp from './components/ScrollUp.vue';
+import { globalStore } from './store/GlobalStore'
+import { onBeforeMount } from 'vue'
+import NavigationComponent from './components/NavigationComponent.vue'
+import ScrollUp from './components/ScrollUp.vue'
 
 const store = globalStore()
 
